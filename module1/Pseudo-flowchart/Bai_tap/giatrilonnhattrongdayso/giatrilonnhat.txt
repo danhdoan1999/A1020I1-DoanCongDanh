@@ -1,0 +1,18 @@
+Begin 
+	nhập N và dãy a1,a2,a3,..,an
+	a1 = max 
+	i = 2 
+while (i < n)
+do
+	if (ai > max)
+		max = ai 
+		i++
+	else 
+		i++
+	end if
+end do 
+end 	
+
+	 	
+	
+      	

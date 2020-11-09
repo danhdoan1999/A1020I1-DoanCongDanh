@@ -1,0 +1,16 @@
+begin 
+	input diem 
+if ( diem < 75 )
+	if ( diem >= 60 )
+		output Loai B
+	else if ( diem >= 45 )
+			output Loai C
+	     else if ( diem >= 35 )
+				output Loai D 
+		  else output Loai E
+		  end if
+	     end if
+	end if	 		
+else output loai A 
+end if
+end
