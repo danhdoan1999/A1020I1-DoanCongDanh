@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="form" onchange="Add(this)">
+        <h1>Caculation</h1>
+        <input type="text" name="numA" id="numA">
+        <input type="text" name="numB" id="numB"><br><br>
+        <button value="1" >Addition(+)</button>
+        <button value="2" >Subtraction(-)</button>
+        <button value="3" >Mutilplication(x)</button>
+        <button value="4" >Division(/)</button><br><br>
+        <div id="result"></div>
+    </form>
+    <script>
+        function Add(obj){
+            var value = obj.value;
+            var numA = document.getElementById("numA").value;
+            var numB = document.getElementById("numB").value;
+            var ketqua = document.getElementById("result");
+            if(value === "1"){
+                cong = Number(numA) + Number(numB)
+                document.getElementById("result").innerHTML = cong;
+            } 
+        }
+        // function Add(){
+        //     var numA = document.getElementById("numA").value;
+        //     var numB = document.getElementById("numB").value;
+        //     var cong = Number(numA) + Number(numB)
+        //     document.getElementById("result").innerHTML = cong;
+        // }
+        // function Sub(){
+        //     var numA = document.getElementById("numA").value;
+        //     var numB = document.getElementById("numB").value;
+        //     var tru = Number(numA) - Number(numB)
+        //     document.getElementById("result").innerHTML = tru;
+        // }
+        // function Mutil(){
+        //     var numA = document.getElementById("numA").value;
+        //     var numB = document.getElementById("numB").value;
+        //     var nhan = Number(numA) * Number(numB)
+        //     document.getElementById("result").innerHTML = nhan;
+        // }
+        // function Divi(){
+        //     var numA = document.getElementById("numA").value;
+        //     var numB = document.getElementById("numB").value;
+        //     var chia = Number(numA) / Number(numB)
+        //     document.getElementById("result").innerHTML = chia;
+        // }
+    </script>
+</body>
+</html>
