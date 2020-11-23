@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="User">
+    <label for="Admin">Xin chào</label>
+    <input type="text" name="Admin" id="Admin">
+    <input type="button" name="xacnhan" id="xacnhan" value="go" onclick="kiemtraAdmin()">
+    </div> <br>
+    <div id="passAdmin" style="display:none;">
+    <label for="Pass">Xin nhập mật khẩu</label>
+    <input type="password" name="Pass" id="Pass">
+    <input type="button" name="xacnhan" id="xacnhan" value="go" onclick="kiemtraPass()">
+    </div>
+    <script>
+       function kiemtraAdmin(){
+        var Admin = document.getElementById("Admin").value;
+        if (Admin == null){
+            alert("Cancel")
+        } else if(Admin == "Admin"){
+                document.getElementById("passAdmin").style.display = "flex"
+                document.getElementById("User").style.display = "none"
+            } else {
+                alert("Who Are You , Men ?")
+            }
+        
+       }
+       function kiemtraPass(){
+        var Pass = document.getElementById("Pass").value;
+        if (Pass == null){
+            alert("Cancel")
+        } else if(Pass == "TheMaster"){
+                alert("Xin Chào")
+            } else {
+                alert("Sai mật khẩu rồi , baby ?")
+            }
+       }
+    </script>
+</body>
+</html>

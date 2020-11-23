@@ -6,26 +6,66 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" id="form" onchange="Add(this)">
+    <style>
+        input{
+            width: 100px;
+        }
+        td{
+            width: 150px;
+            height: 50px;
+        }
+    </style>
+    <form action="">
         <h1>Caculation</h1>
-        <input type="text" name="numA" id="numA">
+         <input type="text" name="numA" id="numA">
         <input type="text" name="numB" id="numB"><br><br>
-        <button value="1" >Addition(+)</button>
-        <button value="2" >Subtraction(-)</button>
-        <button value="3" >Mutilplication(x)</button>
-        <button value="4" >Division(/)</button><br><br>
+        <table>
+            <tr>
+                <td><input type="button" onclick="Add('+')" value="Addition(+)"></input></td>
+                <td><input type="button" onclick="Add('-')" value="Subtraction(-)"></input></td>
+                <td><input type="button" onclick="Add('*')" value="Mutilplication(x)"></input></td>
+                <td><input type="button" onclick="Add('/')" value="Division(/)"></input></td>
+            </tr>
+            <tr>
+                <td><input type="button" name="" id="" value="1"></td>
+                <td><input type="button" name="" id="" value="2"></td>
+                <td><input type="button" name="" id="" value="3"></td>
+                <td><input type="button" name="" id="" value="4"></td>
+            </tr>
+            <tr>
+                <td><input type="button" name="" id="" value="5"></td>
+                <td><input type="button" name="" id="" value="6"></td>
+                <td><input type="button" name="" id="" value="7"></td>
+                <td><input type="button" name="" id="" value="8"></td>
+            </tr>
+            <tr>
+                <td><input type="button" name="" id="" value="9"></td>
+                <td><input type="button" name="" id="" value="0"></td>
+                <td><input type="button" name="" id="" value="."></td>
+                <td><input type="button" name="" id="" value="="></td>
+            </tr>
+        </table>
         <div id="result"></div>
     </form>
     <script>
-        function Add(obj){
-            var value = obj.value;
-            var numA = document.getElementById("numA").value;
-            var numB = document.getElementById("numB").value;
-            var ketqua = document.getElementById("result");
-            if(value === "1"){
-                cong = Number(numA) + Number(numB)
-                document.getElementById("result").innerHTML = cong;
-            } 
+        function Add(pheptinh){
+            var numA = document.getElementById("numA").value
+            var numB = document.getElementById("numB").value
+            switch(pheptinh){
+                case '+':
+                ketqua = Number(numA) + Number(numB);
+                break;
+                case '-':
+                ketqua = Number(numA) - Number(numB);
+                break;
+                case '*':
+                ketqua = Number(numA) * Number(numB);
+                break;
+                default:
+                ketqua = Number(numA) / Number(numB);
+                
+            }
+            document.getElementById("result").innerHTML = ketqua
         }
         // function Add(){
         //     var numA = document.getElementById("numA").value;
