@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><input type="button"  value="+" onclick="addNum(this.value)"></input></td>
+            <td><input type="button"  value="-" onclick="addNum(this.value)"></input></td>
+            <td><input type="button"  value="*" onclick="addNum(this.value)"></input></td>
+            <td><input type="button"  value="/" onclick="addNum(this.value)"></input></td>
+        </tr>
+        <tr>
+            <td><input type="button" name=""  value="1"  onclick="addNum(this.value)"></td>
+            <td><input type="button" name=""  value="2"  onclick="addNum(this.value)"></td>
+            <td><input type="button" name=""  value="3"  onclick="addNum(this.value)"></td>
+            <td><input type="button" name=""  value="4"  onclick="addNum(this.value)"></td>
+        </tr>
+        <tr>
+            <td><input type="button" name=""  value="5"  onclick="addNum(this.value)"></td>
+            <td><input type="button" name=""  value="6"  onclick="addNum(this.value)"></td>
+            <td><input type="button" name=""  value="7"  onclick="addNum(this.value)"></td>
+            <td><input type="button" name=""  value="8"  onclick="addNum(this.value)"></td>
+        </tr>
+        <tr>
+            <td><input type="button" name=""  value="9"  onclick="addNum(this.value)"></td>
+            <td><input type="button" name=""  value="0"  onclick="addNum(this.value)"></td>
+            <td><input type="button" name=""  value="=" onclick="ketqua()"></td>
+            <td><input type="button" name=""  value="clear" onclick="xoa()"></td>   
+        </tr>
+    </table>
+    <input type="text" name="" id="result" value="">
+    <script>
+        function addNum(num){
+            document.getElementById("result").value = document.getElementById("result").value + num 
+        }
+        function ketqua(){
+            var string = document.getElementById("result").value;
+            var res = eval(string)
+            document.getElementById("result").value = res;
+        }
+        function xoa(){
+            document.getElementById("result").value = "";
+        }
+    </script>
+</body>
+</html>

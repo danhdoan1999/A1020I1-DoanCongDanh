@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var weight = parseInt(prompt("nhap vao can nang cua ban : "))
+        var height = parseInt(prompt("nhap vao chieu cao cua ban : "))
+        var bmi = weight / ( height ^ 2 )
+        if (bmi < 18.5){
+            alert("UnderWeight")
+        } else if(bmi < 25.0){
+            alert("normal")
+        } else if(bmi < 30.0){
+            alert("OverWeight")
+        } else {
+            alert("Obese")
+        }
+    </script>
+</body>
+</html>
