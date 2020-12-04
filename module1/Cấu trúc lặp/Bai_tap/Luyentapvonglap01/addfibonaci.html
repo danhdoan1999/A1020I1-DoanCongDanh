@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var n = parseInt(prompt("nhap vao so luong so muon in ra : "))
+        var a = 0;
+        var b = 1;
+        var c = ""
+        var string = a + b 
+        for(let i = 2 ; i < n  ; i++){
+            c = a + b ;
+            string += c
+            a = b;
+            b = c;
+        }
+        document.write(string)
+    </script>
+</body>
+</html>
