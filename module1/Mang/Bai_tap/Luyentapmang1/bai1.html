@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var array = new Array(10);
+        for(let i = 0 ; i < array.length ; i ++){
+            array[i] = parseInt(prompt("nhap vao phan tu thu " + i))
+        }
+        var newAr = [];
+        var count = 0;
+        for(let i = 0 ; i < array.length ; i++){
+            if(array[i] >= 10){
+                newAr.push(array[i]);
+                count ++;
+            }
+        }
+        document.write(newAr + "<br>")
+        document.write("có "+ count + " phần tử lớn hơn bằng 10 ")
+    </script>
+</body>
+</html>
