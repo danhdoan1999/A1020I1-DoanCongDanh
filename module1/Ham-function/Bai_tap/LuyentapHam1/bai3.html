@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="num1" id="num1">
+    <input type="text" name="num2" id="num2">
+    <input type="button" name="" id="" onclick="kiemTra(window.num1.value , window.num2.value)" value="Kiem tra">
+    <script>
+        function kiemTra(a,b){
+            if(a > b){
+                alert(a + " lon hon " + b)
+            } else {
+                let result = Number(a) + Number(b)
+                alert(result)
+            }
+        }
+    </script>
+</body>
+</html>

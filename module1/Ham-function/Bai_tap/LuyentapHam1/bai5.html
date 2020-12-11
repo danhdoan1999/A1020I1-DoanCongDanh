@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="nhap" id="nhap" >
+    <input type="button" name="tim" id="tim" onclick="timKiem(window.nhap.value)" value="Tìm kiếm">
+    <div id="ketqua"></div>
+    <script>
+        let arr1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe" , "Regulus"]
+        let arr2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major" , "Leo"]
+        function timKiem(name){
+            if(name !== "" && name !== null){
+                let result = false;
+                let check;
+                for(let i = 0 ; i < arr1.length ; i++){
+               if(name == arr1[i]){
+                    result = true;
+                    check = i
+                    break;
+               } 
+            } if(result){
+                document.getElementById("ketqua").innerHTML = arr2[check]
+            } else {
+                document.getElementById("ketqua").innerHTML = "không tìm thấy"
+            }
+            } else {
+                document.getElementById("ketqua").innerHTML = "xin bạn nhập thông tin"
+            }
+        }
+    </script>
+</body>
+</html>

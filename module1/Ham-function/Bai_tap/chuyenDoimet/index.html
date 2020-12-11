@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="inp" placeholder="Nhap vao foot hoac met">
+    <input type="button" name="" id="ftm" onclick="footToMeter(document.getElementById('inp').value)" value="Foot to Met">
+    <input type="button" name="" id="mtf" onclick="meterToFoot(document.getElementById('inp').value)" value="Met to Foot">
+    <br>
+    <strong id="ketqua"></strong>
+    <script>
+        function footToMeter(foot){
+            return 3.279*foot
+            document.getElementById("ketqua").innerHTML = result
+        }
+        function meterToFoot(meter){
+            var result = 0.305*meter
+            document.getElementById("ketqua").innerHTML = result
+        }
+    </script>
+</body>
+</html>
