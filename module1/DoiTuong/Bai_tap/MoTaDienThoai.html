@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Mobile{
+            constructor(sttPin,sttMobile){
+                this.sttPin = sttPin;
+                this.sttMobile = sttMobile;
+            }
+            statusOfPin(){
+                if(this.sttPin <= 100 && this.sttPin > 0 ){
+                    console.log("Dien thoai con pin")
+                    this.OnOffMobile()
+                }else{
+                    console.log("Dien thoai da het pin")
+                    this.getEnergy()
+                }
+            }
+            OnOffMobile(){        
+                if(this.sttMobile == "bat"){
+                    console.log("dien thoai dang bat")
+                }else{
+                    console.log("dien thoai dang tat")
+                }
+            }
+            getEnergy(){
+                console.log("dien thoai dang sac pin")
+            }
+            textingMes(){
+                console.log()
+            }
+            nhanMes(){
+                console.log()
+            }
+            guiMes(){
+                console.log()
+            }
+        }
+        let nokia = new Mobile(2,"bat")
+        let samsung = new Mobile(2,"bat")
+        nokia.statusOfPin();
+    </script>
+</body>
+</html>

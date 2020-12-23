@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nameCustomer = prompt("Nhập tên khách hàng")
+        let customerID = prompt("Nhập CNND khách hàng")
+        let birthDay = prompt("Nhập ngày sinh khách hàng")
+        let emailCustomer = prompt("Nhập email khách hàng")
+        let typeCard = prompt("Loại thẻ thành viên")
+        let discount = parseInt(prompt("phần trăm giảm giá"))
+        let amount = prompt("số lượng")
+        let rentsDay = parseInt(prompt("số ngày thuê"))
+        let typeService = prompt(" Nhập loại dịch vụ")
+        let typeRoom = prompt("Nhập loại phòng")
+        let payment;
+        if(typeService == "Villa"){
+            payment = 500*rentsDay*(1-(discount/100))
+        }else if(typeService == "House"){
+            payment = 300*rentsDay*(1-(discount/100))
+        }else {
+            payment = 100*rentsDay*(1-(discount/100))
+        }
+        alert(nameCustomer + "\n" + customerID + "\n" + birthDay  +"\n" + emailCustomer +"\n" + typeCard  +"\n" + discount +"\n" + amount +"\n" + rentsDay +"\n" + typeService +"\n" + typeRoom  +"\n" + payment + "$")
+    </script>
+</body>
+</html>

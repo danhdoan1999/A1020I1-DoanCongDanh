@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Rat{
+            constructor(name,weight,speed,status){
+                this.name = name;
+                this.weight = weight;
+                this.speed = speed;
+                this.status = status;
+            }
+            talk(){
+                console.log("chit chit")
+            }
+        }
+        class Cat{
+            constructor(name,weight,speed){
+                this.name = name;
+                this.weight = weight;
+                this.speed = speed;
+            }
+            talk(){
+                console.log("mew mew")
+            }
+            catchRat(rat){
+                if(this.speed > rat.speed){
+                    console.log("meo da bat dc chuot")
+                    this.eatRat(rat)
+                }else{
+                    console.log("chuot chay nhanh qua")
+                }
+            }
+            eatRat(rat){
+                if(rat.status == "da tam"){
+                    console.log("meo da an chuot")
+                    this.weight += rat.weight
+                }else {
+                    console.log("chuot hoi qua ko an duoc")
+                }
+            }
+        }
+        let objRat = new Rat("Jerry", 2 , 10 , "da tam")
+        let objCat = new Cat("Tom", 2 , 20)
+        objRat.talk();
+        objCat.talk();
+        objCat.catchRat(objRat)
+    </script>
+</body>
+</html>
