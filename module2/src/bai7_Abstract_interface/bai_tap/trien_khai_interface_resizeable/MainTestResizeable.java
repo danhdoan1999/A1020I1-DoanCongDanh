@@ -7,7 +7,7 @@ public class MainTestResizeable {
         shapes[1] = new Rectangle(3,4,"red",true);
         shapes[2] = new Square(5,"yellow",true);
         for (Shape s: shapes) {
-            System.out.println();
+            System.out.println(s);
         }
-    }
+}
 }

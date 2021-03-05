@@ -1,6 +1,6 @@
 package case_study.furama_resort.models;
 
-abstract class Services {
+public abstract class Services {
     public String id;
     public String nameService;
     public int acreage;
