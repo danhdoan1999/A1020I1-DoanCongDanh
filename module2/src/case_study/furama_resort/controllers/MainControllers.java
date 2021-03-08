@@ -1,10 +1,7 @@
 package case_study.furama_resort.controllers;
 
 import case_study.furama_resort.commons.InputOutput;
-import case_study.furama_resort.models.House;
-import case_study.furama_resort.models.Room;
-import case_study.furama_resort.models.Services;
-import case_study.furama_resort.models.Villa;
+import case_study.furama_resort.models.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +14,7 @@ public class MainControllers {
     public static final String FILE_NAME_VILLA = "D:\\Baitapp\\hocweb\\Codegym\\A1020I1-DoanCongDanh\\module2\\src\\case_study\\furama_resort\\data\\Villa.csv";
     public static final String FILE_NAME_HOUSE = "D:\\Baitapp\\hocweb\\Codegym\\A1020I1-DoanCongDanh\\module2\\src\\case_study\\furama_resort\\data\\House.csv";
     public static final String FILE_NAME_ROOM = "D:\\Baitapp\\hocweb\\Codegym\\A1020I1-DoanCongDanh\\module2\\src\\case_study\\furama_resort\\data\\Room.csv";
+    public static final String FILE_NAME_CUSTOMER = "src\\case_study\\furama_resort\\data\\Room.csv";
     public static void addNewServices(){
         // https://levunguyen.com/laptrinhjava/2020/02/07/xu-li-file-trong-lap-trinh-java/
         Scanner scanner = new Scanner(System.in);
@@ -52,6 +50,7 @@ public class MainControllers {
         House house = new House();
         System.out.println("Nhap id House: ");
         house.setId(scanner.nextLine());
+
         System.out.println("Nhap ten House ");
         house.setNameService(scanner.nextLine());
         System.out.println("Nhap dien tich su dung ");
@@ -82,6 +81,7 @@ public class MainControllers {
     static ArrayList<Villa> listVilla = new ArrayList<Villa>();
     static ArrayList<Room> listRoom = new ArrayList<Room>();
     static ArrayList<House> listHouse = new ArrayList<House>();
+    static ArrayList<Customer> listCustomer = new ArrayList<>();
     private static void addNewVilla() {
         Scanner scanner = new Scanner(System.in);
         Villa villa = new Villa();
@@ -116,6 +116,37 @@ public class MainControllers {
             InputOutput.writeFile(FILE_NAME_VILLA,line);
         }
     }
+
+    private static void addNewCustomer() {
+        Scanner scanner = new Scanner(System.in);
+        Customer customer = new Customer();
+        System.out.println("Nhap ho va ten khach hang : ");
+        customer.setHoTen(scanner.nextLine());
+        System.out.println("Nhap ngay sinh ");
+        customer.setDateBirth(scanner.nextLine());
+        System.out.println("Nhap gioi tinh ");
+        customer.setGender(scanner.nextLine());
+        System.out.println("Nhap CMND ");
+        customer.setIdCustomer(scanner.nextDouble());
+        System.out.println("Nhap so ĐT ");
+        customer.setPhone(scanner.nextDouble());
+        System.out.println("Nhap email ");
+        customer.setEmail(scanner.nextLine());
+        System.out.println("Nhap loai khach ");
+        customer.setMember(scanner.nextLine());
+        System.out.println("Nhap dia chi khach hang ");
+        customer.setAddress(scanner.nextLine());
+        listCustomer.add(customer);
+        String line = "";
+        for (Customer cus: listCustomer) {
+            line = " ten : " + cus.getHoTen() + COMMA + " Ten dich vu : " + cus.setAddress(); + COMMA +" Dien tich : "+ vl.getAcreage()
+                    + COMMA +" Gia thue : "+ vl.getCost() + COMMA +" So luong nguoi : "+ vl.getQuantity() + COMMA +" Kieu thue : "+ vl.getDayRents()
+                    + COMMA +" Tieu chuan phong : "+ vl.getTypeRoom() + COMMA +" Tien nghi : "+ vl.getMoreService() + COMMA +" Ho Boi : "+ vl.getPoolArea()
+                    + COMMA +" So tang : "+ vl.getFloor();
+            InputOutput.writeFile(FILE_NAME_VILLA,line);
+        }
+    }
+
     private static void addNewRoom() {
         Scanner scanner = new Scanner(System.in);
         Room room = new Room();
