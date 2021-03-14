@@ -14,7 +14,7 @@ public class MainControllers {
     public static final String FILE_NAME_VILLA = "D:\\Baitapp\\hocweb\\Codegym\\A1020I1-DoanCongDanh\\module2\\src\\case_study\\furama_resort\\data\\Villa.csv";
     public static final String FILE_NAME_HOUSE = "D:\\Baitapp\\hocweb\\Codegym\\A1020I1-DoanCongDanh\\module2\\src\\case_study\\furama_resort\\data\\House.csv";
     public static final String FILE_NAME_ROOM = "D:\\Baitapp\\hocweb\\Codegym\\A1020I1-DoanCongDanh\\module2\\src\\case_study\\furama_resort\\data\\Room.csv";
-    public static final String FILE_NAME_CUSTOMER = "src\\case_study\\furama_resort\\data\\Room.csv";
+    public static final String FILE_NAME_CUSTOMER = "src\\case_study\\furama_resort\\data\\Customer.csv";
     public static void addNewServices(){
         // https://levunguyen.com/laptrinhjava/2020/02/07/xu-li-file-trong-lap-trinh-java/
         Scanner scanner = new Scanner(System.in);
@@ -113,7 +113,7 @@ public class MainControllers {
                     + COMMA +" Gia thue : "+ vl.getCost() + COMMA +" So luong nguoi : "+ vl.getQuantity() + COMMA +" Kieu thue : "+ vl.getDayRents()
                     + COMMA +" Tieu chuan phong : "+ vl.getTypeRoom() + COMMA +" Tien nghi : "+ vl.getMoreService() + COMMA +" Ho Boi : "+ vl.getPoolArea()
                     + COMMA +" So tang : "+ vl.getFloor();
-            InputOutput.writeFile(FILE_NAME_VILLA,line);
+            InputOutput.writeFile(FILE_NAME_CUSTOMER,line);
         }
     }
 
@@ -132,6 +132,7 @@ public class MainControllers {
         customer.setPhone(scanner.nextDouble());
         System.out.println("Nhap email ");
         customer.setEmail(scanner.nextLine());
+        scanner.nextLine();
         System.out.println("Nhap loai khach ");
         customer.setMember(scanner.nextLine());
         System.out.println("Nhap dia chi khach hang ");
@@ -139,11 +140,10 @@ public class MainControllers {
         listCustomer.add(customer);
         String line = "";
         for (Customer cus: listCustomer) {
-            line = " ten : " + cus.getHoTen() + COMMA + " Ten dich vu : " + cus.setAddress(); + COMMA +" Dien tich : "+ vl.getAcreage()
-                    + COMMA +" Gia thue : "+ vl.getCost() + COMMA +" So luong nguoi : "+ vl.getQuantity() + COMMA +" Kieu thue : "+ vl.getDayRents()
-                    + COMMA +" Tieu chuan phong : "+ vl.getTypeRoom() + COMMA +" Tien nghi : "+ vl.getMoreService() + COMMA +" Ho Boi : "+ vl.getPoolArea()
-                    + COMMA +" So tang : "+ vl.getFloor();
-            InputOutput.writeFile(FILE_NAME_VILLA,line);
+            line = " ten : " + cus.getHoTen() + COMMA + " Ngay sinh : " + cus.getDateBirth() + COMMA +" Gioi tinh : "+ cus.getGender()
+                    + COMMA +" CMND : "+ cus.getIdCustomer() + COMMA +" So dien thoai : "+ cus.getPhone() + COMMA +" Email : "+ cus.getEmail()
+                    + COMMA +" Loai khach : "+ cus.getMember() + COMMA +" Dia chi : "+ cus.getAddress();
+            InputOutput.writeFile(FILE_NAME_CUSTOMER,line);
         }
     }
 
@@ -195,6 +195,7 @@ public class MainControllers {
                     MainControllers.showServices();
                     break;
                 case 3:
+                    addNewCustomer();
                     break;
                 case 4:
                     break;
