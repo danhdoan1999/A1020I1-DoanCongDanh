@@ -4,14 +4,14 @@ public class Customer extends Services {
     public String hoTen;
     public String dateBirth;
     public String gender;
-    public double idCustomer;
-    public double phone;
+    public String idCustomer;
+    public String phone;
     public String email;
     public String member;
     public String address;
 
     public  Customer(){}
-    public Customer(String hoTen, String dateBirth, String gender, double idCustomer, double phone, String email, String member, String address) {
+    public Customer(String hoTen, String dateBirth, String gender, String idCustomer, String phone, String email, String member, String address) {
         this.hoTen = hoTen;
         this.dateBirth = dateBirth;
         this.gender = gender;
@@ -22,7 +22,7 @@ public class Customer extends Services {
         this.address = address;
     }
 
-    public Customer(String id, String nameService, int acreage, double cost, int quantity, String dayRents, String hoTen, String dateBirth, String gender, double idCustomer, double phone, String email, String member, String address) {
+    public Customer(String id, String nameService, int acreage, int cost, int quantity, String dayRents, String hoTen, String dateBirth, String gender, String idCustomer, String phone, String email, String member, String address) {
         super(id, nameService, acreage, cost, quantity, dayRents);
         this.hoTen = hoTen;
         this.dateBirth = dateBirth;
@@ -58,19 +58,19 @@ public class Customer extends Services {
         this.gender = gender;
     }
 
-    public double getIdCustomer() {
+    public String getIdCustomer() {
         return idCustomer;
     }
 
-    public void setIdCustomer(double idCustomer) {
+    public void setIdCustomer(String idCustomer) {
         this.idCustomer = idCustomer;
     }
 
-    public double getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(double phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -100,6 +100,18 @@ public class Customer extends Services {
 
     @Override
     public void showInfor() {
+        System.out.println(this.toString());
+    }
 
+    @Override
+    public String toString() {
+        return "\n\tHọ và tên : " + getHoTen() +
+                "\n\tNgày sinh : " + getDateBirth() +
+                "\n\tGiới tính : " + getGender() +
+                "\n\tChứng minh nhân dân : " + getIdCustomer() +
+                "\n\tSố điện thoại : " + getPhone() +
+                "\n\tEmail : " + getEmail() +
+                "\n\tLoại khách : " + getMember() +
+                "\n\tĐịa chỉ : " + getAddress();
     }
 }

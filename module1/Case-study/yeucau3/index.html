@@ -9,9 +9,9 @@
     <script>
         let tempName = "";
         let nameCustomer = prompt("Nhập tên khách hàng")
-        nameCustomer = nameCustomer.trim().toLowerCase();
+        nameCustomer = nameCustomer.trim().toLowerCase(); // trim() bo ki tu trong 2 ben , lower ham chuyen doi chu thuong
         for(let i = 0 ; i<nameCustomer.length;i++){
-            if(nameCustomer.charAt(i)===" "&&nameCustomer.charAt(i+1)===" "){
+            if(nameCustomer.charAt(i)===" "&&nameCustomer.charAt(i+1)===" "){ // charAt tra ve gia tri Char cua chuoi co chi so index dc chi dinh
                 continue;
             }
             if(i===0 || nameCustomer.charAt(i-1)===" "){
@@ -40,7 +40,7 @@
         check = false;
         do{
             let birthDay = prompt("Nhập ngày sinh khách hàng")
-            if(birthDay.charAt(2)==="/"&&birthDay.charAt(5)==="/"){
+            if(birthDay.charAt(2)==="/"&&birthDay.charAt(5)==="/"){ 
                 let day=birthDay.substring(0,2);
                 let month=birthDay.substring(3,5);
                 let year=birthDay.substring(6,10);
@@ -81,14 +81,15 @@
             }
         }while(!check)
         check = false;
+
         let typeCard = prompt("Loại thẻ thành viên")
         let discount = parseInt(prompt("phần trăm giảm giá"))
         let amount = prompt("số lượng")
         do{
             let rentsDay = prompt("số ngày thuê")
             if(!isNaN(rentsDay)){
-                rentsDay = Number.parseFloat(rentsDay);
-                if(Number.isInteger(rentsDay&&rentsDay>0)){
+                rentsDay = Number.parseFloat(rentsDay); // kiem tra xem rentsDay co phai so nguyen duong hay k !
+                if(Number.isInteger(rentsDay)&&rentsDay>0){
                     check = true;
                 }
             }

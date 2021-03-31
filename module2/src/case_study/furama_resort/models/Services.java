@@ -4,11 +4,11 @@ public abstract class Services {
     public String id;
     public String nameService;
     public int acreage;
-    public double cost;
+    public int cost;
     public int quantity;
     public String dayRents;
     public Services(){}
-    public Services(String id,String nameService, int acreage , double cost,int quantity,String dayRents){
+    public Services(String id,String nameService, int acreage , int cost,int quantity,String dayRents){
         this.acreage = acreage;
         this.nameService = nameService;
         this.cost = cost;
@@ -33,11 +33,11 @@ public abstract class Services {
         this.acreage = acreage;
     }
 
-    public double getCost() {
+    public int getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(int cost) {
         this.cost = cost;
     }
 

@@ -3,18 +3,51 @@ package case_study.furama_resort.controllers;
 import case_study.furama_resort.commons.InputOutput;
 import case_study.furama_resort.models.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
+import java.util.*;
 
 public class MainControllers {
     public static final String COMMA = ",";
-
-    public static final String FILE_NAME_VILLA = "D:\\Baitapp\\hocweb\\Codegym\\A1020I1-DoanCongDanh\\module2\\src\\case_study\\furama_resort\\data\\Villa.csv";
-    public static final String FILE_NAME_HOUSE = "D:\\Baitapp\\hocweb\\Codegym\\A1020I1-DoanCongDanh\\module2\\src\\case_study\\furama_resort\\data\\House.csv";
-    public static final String FILE_NAME_ROOM = "D:\\Baitapp\\hocweb\\Codegym\\A1020I1-DoanCongDanh\\module2\\src\\case_study\\furama_resort\\data\\Room.csv";
+    public static final String FILE_NAME_VILLA = "src\\case_study\\furama_resort\\data\\Villa.csv";
+    public static final String FILE_NAME_HOUSE = "src\\case_study\\furama_resort\\data\\House.csv";
+    public static final String FILE_NAME_ROOM = "src\\case_study\\furama_resort\\data\\Room.csv";
     public static final String FILE_NAME_CUSTOMER = "src\\case_study\\furama_resort\\data\\Customer.csv";
+    public static final String FILE_NAME_EMPLOYEE = "src\\case_study\\furama_resort\\data\\Employee.csv";
+    public static void displayMainMenu() {
+        Scanner scanner = new Scanner(System.in);
+        int section;
+        do {
+            System.out.println("1.\tAdd New Services\n" +
+                    "2.\tShow Services\n" +
+                    "3.\tAdd New Customer\n" +
+                    "4.\tShow Information of Customer\n" +
+                    "5.\tAdd New Booking\n" +
+                    "6.\tShow Information of Employee\n" +
+                    "7.\tExit\n");
+            section = scanner.nextInt();
+            switch (section) {
+                case 1:
+                    MainControllers.addNewServices();
+                    break;
+                case 2:
+                    MainControllers.showServices();
+                    break;
+                case 3:
+                    addNewCustomer();
+                    break;
+                case 4:
+                    showInformationCustomers();
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    showInformationEmployee();
+                    break;
+                case 7:
+                    System.exit(0);
+                    break;
+            }
+        }while (section != 0);
+    }
     public static void addNewServices(){
         // https://levunguyen.com/laptrinhjava/2020/02/07/xu-li-file-trong-lap-trinh-java/
         Scanner scanner = new Scanner(System.in);
@@ -42,97 +75,447 @@ public class MainControllers {
                     System.exit(0);
                     break;
             }
-
     }
-
-    private static void addNewHouse() {
-        Scanner scanner = new Scanner(System.in);
-        House house = new House();
-        System.out.println("Nhap id House: ");
-        house.setId(scanner.nextLine());
-
-        System.out.println("Nhap ten House ");
-        house.setNameService(scanner.nextLine());
-        System.out.println("Nhap dien tich su dung ");
-        house.setAcreage(scanner.nextInt());
-        System.out.println("Nhap gia thue ");
-        house.setCost(scanner.nextDouble());
-        System.out.println("Nhap so luong nguoi toi da ");
-        house.setQuantity(scanner.nextInt());
-        scanner.nextLine();
-        System.out.println("Nhap kieu thue theo nam thang ngay gio ");
-        house.setDayRents(scanner.nextLine());
-        System.out.println("Nhap tieu chuan phong ");
-        house.setTypeRoom(scanner.nextLine());
-        System.out.println("Nhap mo ta tien nghi ");
-        house.setMoreService(scanner.nextLine());
-        System.out.println("Nhap so tang ");
-        house.setFloor(scanner.nextInt());
-        listHouse.add(house);
-        String line = "";
-        for (House h: listHouse) {
-            line = " id : " + h.getId() + COMMA + " Ten dich vu : " + h.getNameService() + COMMA +" Dien tich : "+ h.getAcreage()
-                    + COMMA +" Gia thue : "+ h.getCost() + COMMA +" So luong nguoi : "+ h.getQuantity() + COMMA +" Kieu thue : "+ h.getDayRents()
-                    + COMMA +" Tieu chuan phong : "+ h.getTypeRoom() + COMMA +" Tien nghi : "+ h.getMoreService()
-                    + COMMA +" So tang : "+ h.getFloor();
-            InputOutput.writeFile(FILE_NAME_HOUSE,line);
-        }
-    }
-    static ArrayList<Villa> listVilla = new ArrayList<Villa>();
-    static ArrayList<Room> listRoom = new ArrayList<Room>();
-    static ArrayList<House> listHouse = new ArrayList<House>();
-    static ArrayList<Customer> listCustomer = new ArrayList<>();
     private static void addNewVilla() {
+        ArrayList<Villa> listVilla = new ArrayList<Villa>();
         Scanner scanner = new Scanner(System.in);
         Villa villa = new Villa();
-        System.out.println("Nhap id Villa : ");
-        villa.setId(scanner.nextLine());
-        System.out.println("Nhap ten Villa");
-        villa.setNameService(scanner.nextLine());
-        System.out.println("Nhap dien tich su dung ");
-        villa.setAcreage(scanner.nextInt());
-        System.out.println("Nhap gia thue ");
-        villa.setCost(scanner.nextDouble());
-        System.out.println("Nhap so luong nguoi toi da ");
-        villa.setQuantity(scanner.nextInt());
-        scanner.nextLine();
-        System.out.println("Nhap kieu thue theo nam thang ngay gio ");
-        villa.setDayRents(scanner.nextLine());
-        System.out.println("Nhap tieu chuan phong ");
-        villa.setTypeRoom(scanner.nextLine());
-        System.out.println("Nhap mo ta tien nghi ");
-        villa.setMoreService(scanner.nextLine());
-        System.out.println("Nhap dien tich ho boi ");
-        villa.setPoolArea(scanner.nextDouble());
-        System.out.println("Nhap so tang ");
-        villa.setFloor(scanner.nextInt());
+        boolean checkValid = false;
+        String regexID = "SVVL-[0-9]{4}";
+        do{
+            System.out.println("Nhap id Villa : ");
+            String idVL = scanner.nextLine();
+            if (idVL.matches(regexID)){
+                villa.setId(idVL);
+                checkValid = true;
+            }else {
+                System.out.println("ID khong hop le vui long nhap lai !!! ");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        String regexNameSV = "^[A-Z][^A-Z0-9]+$";
+        do {
+            System.out.println("Nhap ten Villa");
+            String nameVilla =  scanner.nextLine();
+            if (nameVilla.matches(regexNameSV)){
+                villa.setNameService(nameVilla);
+                checkValid = true;
+            }else{
+                System.out.println("Ten khong hop le , xin ban nhap lai !!! ");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        String regexSPool = "^[0-9]+$";
+        do {
+            System.out.println("Nhap dien tich su dung ");
+            String sPool = scanner.nextLine();
+            if(sPool.matches(regexSPool) && Integer.parseInt(sPool) >= 30){
+                villa.setAcreage(Integer.parseInt(sPool));
+                checkValid = true;
+            }else {
+                System.out.println("Khong hop le , Xin nhap lai !!!");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        do {
+            System.out.println("Nhap gia thue ");
+            String cost = scanner.nextLine();
+            if (cost.matches(regexSPool) && Integer.parseInt(cost) >= 0){
+                villa.setCost(Integer.parseInt(cost));
+                checkValid = true;
+            }else {
+                System.out.println("Khong hop le , xin nhap lai !!!");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        do {
+            System.out.println("Nhap so luong nguoi toi da ");
+            String numPerson = scanner.nextLine();
+            if (numPerson.matches(regexSPool) && Integer.parseInt(numPerson) > 0 && Integer.parseInt(numPerson) < 20){
+                villa.setQuantity(Integer.parseInt(numPerson));
+                checkValid = true;
+            }else {
+                System.out.println("khong hop le !!!");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        String regexMoreSer = "^(massage|karaoke|food|drink|car)$";
+        do {
+            System.out.println("Nhap mo ta tien nghi ");
+            String moreSer = scanner.nextLine();
+            if(moreSer.matches(regexMoreSer)){
+                villa.setMoreService(moreSer);
+                checkValid = true;
+            }else {
+                System.out.println("khong co dich vu " + moreSer);
+            }
+        }while (!checkValid);
+        checkValid = false;
+        do {
+            System.out.println("Nhap so tang ");
+            String floor = scanner.nextLine();
+            if (floor.matches(regexSPool) && Integer.parseInt(floor) >= 0){
+                villa.setFloor(Integer.parseInt(floor));
+                checkValid = true;
+            }else {
+                System.out.println("Khong hop le , xin nhap lai !!!");
+            }
+        }while (!checkValid);
+        checkValid = false;
+
+        do {
+            System.out.println("Nhap kieu thue theo nam thang ngay gio");
+            String typeHide =  scanner.nextLine();
+            if (typeHide.matches(regexNameSV)){
+                villa.setDayRents(typeHide);
+                checkValid = true;
+            }else{
+                System.out.println("Kieu thue khong hop le , xin ban nhap lai !!! ");
+            }
+        }while (!checkValid);
+        checkValid = false;
+
+        do {
+            System.out.println("Nhap tieu chuan phong");
+            String typeRoom =  scanner.nextLine();
+            if (typeRoom.matches(regexNameSV)){
+                villa.setTypeRoom(typeRoom);
+                checkValid = true;
+            }else{
+                System.out.println("Khong hop le , xin ban nhap lai !!! ");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        do {
+            System.out.println("Nhap dien tich ho boi ");
+            String sPool = scanner.nextLine();
+            if(sPool.matches(regexSPool) && Integer.parseInt(sPool) >= 30){
+                villa.setPoolArea(Integer.parseInt(sPool));
+                checkValid = true;
+            }else {
+                System.out.println("Khong hop le , Xin nhap lai !!!");
+            }
+        }while (!checkValid);
+        checkValid = false;
         listVilla.add(villa);
         String line = "";
         for (Villa vl: listVilla) {
-            line = " id : " + vl.getId() + COMMA + " Ten dich vu : " + vl.getNameService() + COMMA +" Dien tich : "+ vl.getAcreage()
-                    + COMMA +" Gia thue : "+ vl.getCost() + COMMA +" So luong nguoi : "+ vl.getQuantity() + COMMA +" Kieu thue : "+ vl.getDayRents()
-                    + COMMA +" Tieu chuan phong : "+ vl.getTypeRoom() + COMMA +" Tien nghi : "+ vl.getMoreService() + COMMA +" Ho Boi : "+ vl.getPoolArea()
-                    + COMMA +" So tang : "+ vl.getFloor();
-            InputOutput.writeFile(FILE_NAME_CUSTOMER,line);
+            line =  vl.getId() + COMMA  + vl.getNameService() + COMMA  + vl.getAcreage()
+                    + COMMA + vl.getCost() + COMMA + vl.getQuantity() + COMMA + vl.getDayRents()
+                    + COMMA + vl.getTypeRoom() + COMMA + vl.getMoreService() + COMMA + vl.getPoolArea()
+                    + COMMA + vl.getFloor();
+            InputOutput.writeFile(FILE_NAME_VILLA,line);
         }
     }
+    private static void addNewHouse() {
+        ArrayList<House> listHouse = new ArrayList<House>();
+        Scanner scanner = new Scanner(System.in);
+        House house = new House();
+        boolean checkValid = false;
+        String regexID = "(SVHO)-[0-9]{4}";
+        do{
+            System.out.println("Nhap id House : ");
+            String idH = scanner.nextLine();
+            if (idH.matches(regexID)){
+                house.setId(idH);
+                checkValid = true;
+            }else {
+                System.out.println("Id khong hop le , vui long nhap lai !!!");
+            }
+        }while (!checkValid);
+        checkValid = false;
 
+        String regexNameHouse = "^[A-Z][^A-Z0-9]+$";
+        do {
+            System.out.println("Nhap ten House");
+            String nameHouse =  scanner.nextLine();
+            if (nameHouse.matches(regexNameHouse)){
+                house.setNameService(nameHouse);
+                checkValid = true;
+            }else{
+                System.out.println("Ten khong hop le , xin ban nhap lai !!! ");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        String regexS = "^[0-9]+$";
+        do {
+            System.out.println("Nhap dien tich su dung ");
+            String s = scanner.nextLine();
+            if(s.matches(regexS) && Integer.parseInt(s) >= 30){
+                house.setAcreage(Integer.parseInt(s));
+                checkValid = true;
+            }else {
+                System.out.println("Khong hop le , Xin nhap lai !!!");
+            }
+        }while (!checkValid);
+        checkValid = false;
+
+        do {
+            System.out.println("Nhap gia thue ");
+            String costH = scanner.nextLine();
+            if (costH.matches(regexS) && Integer.parseInt(costH) >= 0){
+                house.setCost(Integer.parseInt(costH));
+                checkValid = true;
+            }else {
+                System.out.println("Khong hop le , xin nhap lai !!!");
+            }
+        }while (!checkValid);
+        checkValid = false;
+
+        do {
+            System.out.println("Nhap so luong nguoi toi da ");
+            String numPerson = scanner.nextLine();
+            if (numPerson.matches(regexS) && Integer.parseInt(numPerson) > 0 && Integer.parseInt(numPerson) < 20){
+                house.setQuantity(Integer.parseInt(numPerson));
+                checkValid = true;
+            }else {
+                System.out.println("khong hop le !!!");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        do {
+            System.out.println("Nhap kieu thue theo nam thang ngay gio");
+            String typeHide =  scanner.nextLine();
+            if (typeHide.matches(regexNameHouse)){
+                house.setDayRents(typeHide);
+                checkValid = true;
+            }else{
+                System.out.println("Kieu thue khong hop le , xin ban nhap lai !!! ");
+            }
+        }while (!checkValid);
+        checkValid = false;
+
+        do {
+            System.out.println("Nhap tieu chuan phong");
+            String typeRoom =  scanner.nextLine();
+            if (typeRoom.matches(regexNameHouse)){
+                house.setTypeRoom(typeRoom);
+                checkValid = true;
+            }else{
+                System.out.println("Khong hop le , xin ban nhap lai !!! ");
+            }
+        }while (!checkValid);
+        checkValid = false;
+
+        String regexMoreSer = "^(massage|karaoke|food|drink|car)$";
+        do {
+            System.out.println("Nhap mo ta tien nghi ");
+            String moreSer = scanner.nextLine();
+            if(moreSer.matches(regexMoreSer)){
+                house.setMoreService(moreSer);
+                checkValid = true;
+            }else {
+                System.out.println("khong co dich vu " + moreSer);
+            }
+        }while (!checkValid);
+        checkValid = false;
+
+        do {
+            System.out.println("Nhap so tang ");
+            String floor = scanner.nextLine();
+            if (floor.matches(regexS) && Integer.parseInt(floor) >= 0){
+                house.setFloor(Integer.parseInt(floor));
+                checkValid = true;
+            }else {
+                System.out.println("Khong hop le , xin nhap lai !!!");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        listHouse.add(house);
+        String line = "";
+        for (House h: listHouse) {
+            line =  h.getId() + COMMA +  h.getNameService() + COMMA+ h.getAcreage()
+                    + COMMA + h.getCost() + COMMA + h.getQuantity() + COMMA + h.getDayRents()
+                    + COMMA + h.getTypeRoom() + COMMA + h.getMoreService()
+                    + COMMA + h.getFloor();
+            InputOutput.writeFile(FILE_NAME_HOUSE,line);
+        }
+    }
+    private static void addNewRoom() {
+        ArrayList<Room> listRoom = new ArrayList<Room>();
+        Scanner scanner = new Scanner(System.in);
+        Room room = new Room();
+        boolean checkValid = false;
+        String regexID = "SVRO-[0-9]{4}";
+        do{
+            System.out.println("Nhap id Room : ");
+            String idR = scanner.nextLine();
+            if (idR.matches(regexID)){
+                room.setId(idR);
+                checkValid = true;
+            }
+        }while (!checkValid);
+        checkValid = false;
+
+        String regexNameSV = "^[A-Z][^A-Z0-9]+$";
+        do {
+            System.out.println("Nhap ten Room");
+            String nameRoom =  scanner.nextLine();
+            if (nameRoom.matches(regexNameSV)){
+                room.setNameService(nameRoom);
+                checkValid = true;
+            }else{
+                System.out.println("Ten khong hop le , xin ban nhap lai !!! ");
+            }
+        }while (!checkValid);
+        checkValid = false;
+
+        String regexS = "^[0-9]+$";
+        do {
+            System.out.println("Nhap dien tich su dung ");
+            String s = scanner.nextLine();
+            if(s.matches(regexS) && Integer.parseInt(s) >= 30){
+                room.setAcreage(Integer.parseInt(s));
+                checkValid = true;
+            }else {
+                System.out.println("Khong hop le , Xin nhap lai !!!");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        do {
+            System.out.println("Nhap gia thue ");
+            String cost = scanner.nextLine();
+            if (cost.matches(regexS) && Integer.parseInt(cost) >= 0){
+                room.setCost(Integer.parseInt(cost));
+                checkValid = true;
+            }else {
+                System.out.println("Khong hop le , xin nhap lai !!!");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        do {
+            System.out.println("Nhap so luong nguoi toi da ");
+            String numPerson = scanner.nextLine();
+            if (numPerson.matches(regexS) && Integer.parseInt(numPerson) > 0 && Integer.parseInt(numPerson) < 20){
+                room.setQuantity(Integer.parseInt(numPerson));
+                checkValid = true;
+            }else {
+                System.out.println("khong hop le !!!");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        String regexMoreSer = "^[A-Z][^A-Z_0-9]+$";
+        do {
+            System.out.println("Nhap dich vu mien phi di kem ");
+            String freeSer = scanner.nextLine();
+            if(freeSer.matches(regexMoreSer)){
+                room.setFreeService(freeSer);
+                checkValid = true;
+            }else {
+                System.out.println("Khong hop le ");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        do {
+            System.out.println("Nhap kieu thue theo nam thang ngay gio");
+            String typeHide =  scanner.nextLine();
+            if (typeHide.matches(regexNameSV)){
+                room.setDayRents(typeHide);
+                checkValid = true;
+            }else{
+                System.out.println("Kieu thue khong hop le , xin ban nhap lai !!! ");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        listRoom.add(room);
+        String line = "";
+        for (Room r: listRoom) {
+            line =  r.getId() + COMMA +  r.getNameService() + COMMA + r.getAcreage()
+                    + COMMA + r.getCost() + COMMA + r.getQuantity() + COMMA + r.getDayRents()
+                    + COMMA + r.getFreeService();
+            InputOutput.writeFile(FILE_NAME_ROOM,line);
+        }
+    }
     private static void addNewCustomer() {
+        ArrayList<Customer> listCustomer = new ArrayList<Customer>();
         Scanner scanner = new Scanner(System.in);
         Customer customer = new Customer();
-        System.out.println("Nhap ho va ten khach hang : ");
-        customer.setHoTen(scanner.nextLine());
-        System.out.println("Nhap ngay sinh ");
-        customer.setDateBirth(scanner.nextLine());
-        System.out.println("Nhap gioi tinh ");
-        customer.setGender(scanner.nextLine());
-        System.out.println("Nhap CMND ");
-        customer.setIdCustomer(scanner.nextDouble());
-        System.out.println("Nhap so ĐT ");
-        customer.setPhone(scanner.nextDouble());
-        System.out.println("Nhap email ");
-        customer.setEmail(scanner.nextLine());
-        scanner.nextLine();
+        boolean checkValid = false;
+        do {
+            try{
+                System.out.println("Nhap ho va ten khach hang : ");
+                String nameCus = scanner.nextLine();
+                if (ExceptionCustomer.nameCustomer(nameCus)){
+                    customer.setHoTen(nameCus);
+                    checkValid = true;
+                }
+            }catch (Exception n){
+                System.err.println("Tên Khách hàng phải in hoa ký tự đầu tiên trong mỗi từ");
+            }
+        }while (!checkValid);
+        checkValid = false;
+
+        do {
+            try{
+                System.out.println("Nhap ngay sinh ");
+                String birthDay = scanner.nextLine();
+                if (ExceptionCustomer.birthdayException(birthDay)){
+                    customer.setDateBirth(birthDay);
+                    checkValid = true;
+                }
+            }catch (Exception b){
+                System.err.println("Năm sinh phải >1900 và nhỏ hơn năm hiện tại 18 năm, đúng định dạng dd/mm/yyyy");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        do {
+            try{
+                System.out.println("Nhap gioi tinh ");
+                String gender = scanner.nextLine();
+                if (ExceptionCustomer.genderException(gender).equals("Male")){
+                    customer.setGender("Male");
+                    checkValid = true;
+                }else if (ExceptionCustomer.genderException(gender).equals("Female")){
+                    customer.setGender("Female");
+                    checkValid = true;
+                }else if (ExceptionCustomer.genderException(gender).equals("Unknow")){
+                    customer.setGender("Unknow");
+                    checkValid = true;
+                }
+            }catch (Exception g){
+                System.err.println("Male , Female or Unknow ? ");
+            }
+        }while (!checkValid);
+        checkValid = false;
+
+        do {
+            try{
+                System.out.println("Nhap CMND ");
+                String cmndCus = scanner.nextLine();
+                if (ExceptionCustomer.idCardException(cmndCus)){
+                    customer.setIdCustomer(cmndCus);
+                    checkValid = true;
+                }
+            }catch (Exception i){
+                System.err.println("Id Card phải có 9 chữ số và theo định dạng XXX XXX XXX");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        String REGEX_PHONE = "^[0-9]{10}$";
+        do {
+            System.out.println("Nhap so ĐT ");
+            String phoneNum = scanner.nextLine();
+            if (phoneNum.matches(REGEX_PHONE)){
+                customer.setPhone(phoneNum);
+                checkValid = true;
+            }else {
+                System.err.println("Phai du 10 so");
+            }
+        }while (!checkValid);
+        checkValid = false;
+        do {
+            try{
+                System.out.println("Nhap email ");
+                String emailCus = scanner.nextLine();
+                if (ExceptionCustomer.emailException(emailCus)){
+                    customer.setEmail(emailCus);
+                    checkValid = true;
+                }
+            }catch (Exception e){
+                System.err.println("Email phải đúng định dạng abc@abc.abc");
+            }
+        }while (!checkValid);
+        checkValid = false;
         System.out.println("Nhap loai khach ");
         customer.setMember(scanner.nextLine());
         System.out.println("Nhap dia chi khach hang ");
@@ -140,76 +523,12 @@ public class MainControllers {
         listCustomer.add(customer);
         String line = "";
         for (Customer cus: listCustomer) {
-            line = " ten : " + cus.getHoTen() + COMMA + " Ngay sinh : " + cus.getDateBirth() + COMMA +" Gioi tinh : "+ cus.getGender()
-                    + COMMA +" CMND : "+ cus.getIdCustomer() + COMMA +" So dien thoai : "+ cus.getPhone() + COMMA +" Email : "+ cus.getEmail()
-                    + COMMA +" Loai khach : "+ cus.getMember() + COMMA +" Dia chi : "+ cus.getAddress();
+            line = cus.getHoTen() + COMMA + cus.getDateBirth() + COMMA + cus.getGender()
+                    + COMMA + cus.getIdCustomer() + COMMA + cus.getPhone() + COMMA + cus.getEmail()
+                    + COMMA + cus.getMember() + COMMA + cus.getAddress();
             InputOutput.writeFile(FILE_NAME_CUSTOMER,line);
         }
     }
-
-    private static void addNewRoom() {
-        Scanner scanner = new Scanner(System.in);
-        Room room = new Room();
-        System.out.println("Nhap id Room: ");
-        room.setId(scanner.nextLine());
-        System.out.println("Nhap ten Room");
-        room.setNameService(scanner.nextLine());
-        System.out.println("Nhap dien tich su dung ");
-        room.setAcreage(scanner.nextInt());
-        System.out.println("Nhap gia thue ");
-        room.setCost(scanner.nextDouble());
-        System.out.println("Nhap so luong nguoi toi da ");
-        room.setQuantity(scanner.nextInt());
-        scanner.nextLine();
-        System.out.println("Nhap kieu thue theo nam thang ngay gio ");
-        room.setDayRents(scanner.nextLine());
-        System.out.println("Nhap dich vu mien phi di kem ");
-        room.setFreeService(scanner.nextLine());
-        listRoom.add(room);
-        String line = "";
-        for (Room r: listRoom) {
-            line = " id : " + r.getId() + COMMA + " Ten dich vu : " + r.getNameService() + COMMA +" Dien tich : "+ r.getAcreage()
-                    + COMMA +" Gia thue : "+ r.getCost() + COMMA +" So luong nguoi : "+ r.getQuantity() + COMMA +" Kieu thue : "+ r.getDayRents()
-                    + COMMA +" Dich vu mien phi : "+ r.getFreeService();
-            InputOutput.writeFile(FILE_NAME_ROOM,line);
-        }
-    }
-
-    public static void displayMainMenu(){
-        Scanner scanner = new Scanner(System.in);
-        int section;
-        do {
-            System.out.println("1.\tAdd New Services\n" +
-                    "2.\tShow Services\n" +
-                    "3.\tAdd New Customer\n" +
-                    "4.\tShow Information of Customer\n" +
-                    "5.\tAdd New Booking\n" +
-                    "6.\tShow Information of Employee\n" +
-                    "7.\tExit\n");
-             section = scanner.nextInt();
-            switch (section) {
-                case 1:
-                    MainControllers.addNewServices();
-                    break;
-                case 2:
-                    MainControllers.showServices();
-                    break;
-                case 3:
-                    addNewCustomer();
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-                case 6:
-                    break;
-                case 7:
-                    System.exit(0);
-                    break;
-            }
-        }while (section != 0);
-    }
-
     private static void showServices() {
         Scanner scanner = new Scanner(System.in);
         int showServices;
@@ -224,25 +543,13 @@ public class MainControllers {
         showServices = scanner.nextInt();
         switch (showServices){
             case 1:
-//                for (Villa vl : listVilla ){
-//                    vl.showInfor();
-//                }
-                List<String> listlineVilla = InputOutput.readFile(FILE_NAME_VILLA);
-                System.out.println(listlineVilla);
+                showAllVilla();
                 break;
             case 2:
-//                for (House h : listHouse){
-//                    h.showInfor();
-//                }
-                List<String> listlineHouse = InputOutput.readFile(FILE_NAME_HOUSE);
-                System.out.println(listlineHouse);
+                showAllHouse();
                 break;
             case 3:
-//                for (Room r : listRoom){
-//                    r.showInfor();
-//                }
-                List<String> listlineRoom = InputOutput.readFile(FILE_NAME_ROOM);
-                System.out.println(listlineRoom);
+                showAllRoom();
                 break;
             case 4:
                 break;
@@ -258,28 +565,47 @@ public class MainControllers {
                 break;
         }
     }
-
+    private static void showAllHouse() {
+        List<House> listlineHouse = InputOutput.readFileHouse(FILE_NAME_HOUSE);
+        for (int i = 0 ; i < listlineHouse.size();i++){
+            System.out.println("-------------    "+(i+1) + "    -------------" + listlineHouse.get(i)+"\n");
+        }
+        System.out.println("-----------------------------------");
+    }
+    private static void showAllRoom() {
+        List<Room> listlineRoom = InputOutput.readFileRoom(FILE_NAME_ROOM);
+        for (int i = 0 ; i < listlineRoom.size();i++){
+            System.out.println("-------------    "+(i+1) + "    -------------" + listlineRoom.get(i)+"\n");
+        }
+        System.out.println("-----------------------------------");
+    }
+    private static void showAllVilla() {
+        List<Villa> listVilla = InputOutput.readFileVilla(FILE_NAME_VILLA);
+        for (int i = 0 ; i < listVilla.size();i++){
+            System.out.println("-------------    "+(i+1) + "    -------------" + listVilla.get(i)+"\n");
+        }
+        System.out.println("-----------------------------------");
+    }
+    private static void showInformationCustomers(){
+        List<Customer> listCustomer = InputOutput.readFileCustomer(FILE_NAME_CUSTOMER);
+        listCustomer.sort(new SortCustomer());
+        for (int i = 0 ; i < listCustomer.size(); i++){
+            System.out.println("-------------    "+(i+1)+"    -------------" + listCustomer.get(i)+"\n");
+        }
+        System.out.println("-----------------------------------");
+    }
+    private static void showInformationEmployee() {
+        Map<String,Employee> mapOfEmployee = InputOutput.readFileEmployee(FILE_NAME_EMPLOYEE);
+//    for (int i = 0 ; i<mapOfEmployee.size();i++){
+//        System.out.println((i+1)+"----------"+mapOfEmployee.get(i)+"\n");
+//    }
+        System.out.println("-------------------------------------------");
+        for (Map.Entry<String,Employee> employeeEntry : mapOfEmployee.entrySet()){
+            System.out.println(employeeEntry.getKey() + " " + employeeEntry.getValue().toString());
+            System.out.println("-------------------------------------------");
+        }
+    }
     public static void main(String[] args) {
         displayMainMenu();
-
-//        List<Services> servicesList = new ArrayList<>();
-//        House house1 = new House();
-//        Villa villa1 = new Villa();
-//        Room room1 = new Room();
-//        servicesList.add(house1);
-//        servicesList.add(villa1);
-//        servicesList.add(house1);
-//
-//
-//
-//        for (Services services: servicesList) {
-//            if (services instanceof House) {
-//                House house = (House) services;
-//            }
-//        }
-//
-//        for (Services services: servicesList) {
-//            services.showInfor();
-//        }
     }
 }

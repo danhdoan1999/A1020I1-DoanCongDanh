@@ -7,7 +7,7 @@ public class Room extends  Services{
         this.freeService = freeService;
     }
 
-    public Room(String id, String nameService, int acreage, double cost, int quantity, String dayRents, String freeService) {
+    public Room(String id, String nameService, int acreage, int cost, int quantity, String dayRents, String freeService) {
         super(id, nameService, acreage, cost, quantity, dayRents);
         this.freeService = freeService;
     }
@@ -21,13 +21,19 @@ public class Room extends  Services{
     }
 
     @Override
+    public String toString() {
+        return "\n\tId : " + getId() +
+                "\n\tTên dịch vụ : " + getNameService() +
+                "\n\tDiện tích sử dụng : " + getAcreage() +
+                "\n\tChi phí thuê : " + getCost() +
+                "\n\tSố lượng người tối đa : " + getQuantity() +
+                "\n\tKiểu thuê : " + getDayRents() +
+                "\n\tDịch vụ miễn phí đi kèm : " + getFreeService();
+
+    }
+
+    @Override
     public void showInfor() {
-        System.out.println("Villa : " +
-                ", id='" + getId() + '\'' +
-                ", nameService='" + getNameService() + '\'' +
-                ", acreage=" + getAcreage() +
-                ", cost=" + getCost() +
-                ", quantity=" + getQuantity() +
-                ", dayRents='" + getDayRents());
+        System.out.println(this.toString());
     }
 }

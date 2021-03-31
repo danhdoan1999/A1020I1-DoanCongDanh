@@ -3,18 +3,18 @@ package case_study.furama_resort.models;
 public class Villa extends Services{
     public String typeRoom;
     public String moreService;
-    public double poolArea;
+    public int poolArea;
     public int floor;
     public Villa(){}
 
-    public Villa(String typeRoom, String moreService, double poolArea, int floor) {
+    public Villa(String typeRoom, String moreService, int poolArea, int floor) {
         this.typeRoom = typeRoom;
         this.moreService = moreService;
         this.poolArea = poolArea;
         this.floor = floor;
     }
 
-    public Villa(String id, String nameService, int acreage, double cost, int quantity, String dayRents, String typeRoom, String moreService, double poolArea, int floor) {
+    public Villa(String id, String nameService, int acreage, int cost, int quantity, String dayRents, String typeRoom, String moreService, int poolArea, int floor) {
         super(id, nameService, acreage, cost, quantity, dayRents);
         this.typeRoom = typeRoom;
         this.moreService = moreService;
@@ -38,11 +38,11 @@ public class Villa extends Services{
         this.moreService = moreService;
     }
 
-    public double getPoolArea() {
+    public int getPoolArea() {
         return poolArea;
     }
 
-    public void setPoolArea(double poolArea) {
+    public void setPoolArea(int poolArea) {
         this.poolArea = poolArea;
     }
 
@@ -55,17 +55,21 @@ public class Villa extends Services{
     }
 
     @Override
+    public String toString() {
+        return "\n\tId : " + getId() +
+                "\n\tTên dịch vụ : " + getNameService() +
+                "\n\tDiện tích sử dụng : " + getAcreage() +
+                "\n\tChi phí thuê : " + getCost() +
+                "\n\tSố lượng người tối đa : " + getQuantity() +
+                "\n\tKiểu thuê : " + getDayRents() +
+                "\n\tTiêu chuẩn phòng : " + getTypeRoom() +
+                "\n\tMô tả tiện nghi khác : " + getMoreService() +
+                "\n\tDiện tích hồ bơi : " + getPoolArea() +
+                "\n\tSố tầng : " + getFloor();
+    }
+
+    @Override
     public void showInfor() {
-        System.out.println("Villa : " +
-                ", id='" + getId() + '\'' +
-                ", nameService='" + getNameService() + '\'' +
-                "typeRoom='" + getTypeRoom() + '\'' +
-                ", moreService='" + getMoreService() + '\'' +
-                ", poolArea=" + getPoolArea() +
-                ", floor=" + getFloor() +
-                ", acreage=" + getAcreage() +
-                ", cost=" + getCost() +
-                ", quantity=" + getQuantity() +
-                ", dayRents='" + getDayRents());
+        System.out.println(this.toString());
     }
 }
