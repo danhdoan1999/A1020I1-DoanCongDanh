@@ -415,9 +415,42 @@ end;
 -- cau 27 :
 -- Tạo user function thực hiện yêu cầu sau:
 -- Tạo user function func_1: Đếm các dịch vụ đã được sử dụng với Tổng tiền là > 2.000.000 VNĐ.
+select count(distinct id_dich_vu) from hop_dong where id_dich_vu in (select id_dich_vu from hop_dong)
+												group by id_dich_vu having sum(tong_tien) > 2000000;
 -- Tạo user function Func_2: Tính khoảng thời gian dài nhất tính từ lúc bắt đầu làm hợp đồng đến lúc kết thúc hợp đồng 
 -- mà Khách hàng đã thực hiện thuê dịch vụ 
 -- (lưu ý chỉ xét các khoảng thời gian dựa vào từng lần làm hợp đồng thuê dịch vụ, không xét trên toàn bộ các lần làm hợp đồng). 
 -- Mã của Khách hàng được truyền vào như là 1 tham số của function này.
 
+delimiter //
+drop function if exists func_1 // 
+create function func_1() returns int 
+deterministic
+begin
+create temporary table temp
+(select count(distinct id_dich_vu) from hop_dong where id_dich_vu in (select distinct id_dich_vu from hop_dong)
+												group by id_dich_vu having sum(tong_tien) > 2000000);
+                                                set @tong_so_dich_vu = (select count(*) from temp);
+                                                drop temporary table temp;
+                                                return @tong_so_dich_vu;
+end;
+-- chay thu 
+select func_1() as 'so luong dich vu co tong tien tren 2000000'
+// delimiter 
+-- b
+delimiter // 
+drop function if exists func_2 //
+create function func_2( id_khach_hang int) returns int 
+deterministic
+begin
+set @time_dai_nhat = (select max(datediff(hd.ngay_ket_thuc,hd.ngay_bat_dau)) from hop_dong hd 
+																			 where hd.id_khach_hang = id_khach_hang);
+																			 return @time_dai_nhat;	
+end;
+-- chay thu vs khach hang co id la 6 
+select func_2(6) as 'thoi gian dai nhat'
+// delimiter 
 
+-- cau 28 : 
+                                                
+                                                
