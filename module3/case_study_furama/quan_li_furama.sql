@@ -326,17 +326,98 @@ select kh.id_loai_khach , kh.ho_ten_kh , hd.ngay_ket_thuc , sum(hd.tong_tien) as
                                            group by hd.id_khach_hang having sum(hd.tong_tien) > 10000000
 ); 
 -- cau 18 : 
-delete khach_hang , hop_dong_chi_tiet , hop_dong from khach_hang kh inner join hop_dong hd on kh.id_khach_hang = hd.id_khach_hang 
+delete khach_hang,hop_dong,hop_dong_chi_tiet  from khach_hang kh inner join hop_dong hd on kh.id_khach_hang = hd.id_khach_hang 
 																	inner join hop_dong_chi_tiet hdct on hdct.id_hop_dong = hd.id_hop_dong
                                                                     where not exists(select hd.id_hop_dong where year(hd.ngay_bat_dau) > '2016'
-																											and hd.id_hop_dong = kh.id_hop_dong);
+																											and hd.id_khach_hang = kh.id_khach_hang);
                                                                                                             
 -- cau 19 : 
+update dich_vu_di_kem dvdk inner join (
+select dvdk.ten_dv as 'ten_dich_vu' from hop_dong_chi_tiet hdct inner join dich_vu_di_kem dvdk on dvdk.id_dvdk = hdct.id_dvdk
+group by dvdk.id_dvdk having count(hdct.id_dvdk) > 2
+) as temp set dvdk.gia_dv = dvdk.gia_dv*2 where dvdk.ten_dv = temp.ten_dich_vu;
 
+-- cau 20 : 
+select id_nhan_vien as 'id',ten,ngay_sinh,cmnd,sdt,email,dia_chi,"nhanvien" from nhan_vien
+union all
+select id_khach_hang as 'id',ho_ten_kh,ngay_sinh_kh,cmnd_kh,so_dth,email,dia_chi,"khachhang" from khach_hang;
 
+-- cau 21 :
+-- Tạo khung nhìn có tên là V_NHANVIEN để lấy được thông tin của tất cả các nhân viên có địa chỉ là “Hải Châu” và đã từng lập hợp đồng cho 1 hoặc nhiều Khách hàng bất kỳ  với ngày lập hợp đồng là “12/12/2019”
+create view v_nhanvien as 
+select distinct * from nhan_vien nv 
+inner join hop_dong hd on nv.id_nhan_vien = hd.id_nhan_vien where nv.dia_chi = 'da nang' and hd.ngay_bat_dau = '2019-12-12';
 
+-- cau 22 : 
+-- Thông qua khung nhìn V_NHANVIEN thực hiện cập nhật địa chỉ thành “Liên Chiểu” đối với tất cả các Nhân viên được nhìn thấy bởi khung nhìn này.
+update nhan_vien nv set dia_chi = 'lien chieu' where nv.id_nhan_vien in (select id_nhan_vien from v_nhan_vien);
+-- cau 23 : 
+-- Tạo Store procedure Sp_1 Dùng để xóa thông tin của một Khách hàng nào đó với Id Khách hàng được truyền vào như là 1 tham số của Sp_1
+delimiter //
+create procedure sp_1(in id_khach_hang int)
+begin
+	delete khach_hang from khach_hang kh where kh.id_khach_hang = id_khach_hang; 
+end
    
+// delimiter 
+
+call sp_1(9);
+-- cau 24 : 
+delimiter //
+drop procedure if exists sp_2 // 
+create procedure sp_2(in id_hop_dong int , in in_nhan_vien int , in id_khach_hang int , in id_dich_vu int , in ngay_bat_dau date , in ngay_ket_thuc date , in tien_dat_coc int , in tong_tien int)
+begin
+set @x = (select count(id_hop_dong) from hop_dong hd where hd.id_hop_dong = id_hop_dong group by hd.id_hop_dong);
+if(@x is null and (select id_nhan_vien from nhan_vien nv where nv.id_nhan_vien = id_nhan_vien)
+			  and (select id_khach_hang from khach_hang kh where kh.id_khach_hang = id_khach_hang)
+              and (select id_dich_vu from dich_vu dv where dv.id_dich_vu = id_dich_vu)
+              and (ngay_ket_thuc > ngay_bat_dau)) 
+              then insert hop_dong values (id_hop_dong , id_nhan_vien , id_khach_hang,id_dich_vu , ngay_bat_dau,ngay_ket_thuc,tien_dat_coc,tong_tien);
+              else signal sqlstate '45000' set message_text = 'sai du lieu';
+              end if;
+end 
+// delimiter ;
+
+-- cau 25 :
+-- Tạo triggers có tên Tr_1 Xóa bản ghi trong bảng HopDong thì hiển thị tổng số lượng bản ghi còn lại có trong bảng HopDong ra giao diện console của database
+
+delimiter //
+drop trigger if exists tr_1 //
+create trigger tr_1 after delete on hop_dong for each row
+begin
+set @x = (select count(*) from hop_dong );
+end;
+// delimiter ;
+-- chay 
+set @x = 0;
+delete from hop_dong hd where hd.id_hop_dong = 5;
+select @x as 'so luong hop dong sau khi xoa';
+
+-- cau 26 :
+-- Tạo triggers có tên Tr_2 Khi cập nhật Ngày kết thúc hợp đồng, 
+-- cần kiểm tra xem thời gian cập nhật có phù hợp hay không, với quy tắc sau: 
+-- Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày. 
+-- Nếu dữ liệu hợp lệ thì cho phép cập nhật, nếu dữ liệu không hợp lệ thì in ra thông báo 
+-- “Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày” trên console của database
+
+delimiter //
+drop trigger if exists tr_2 //
+create trigger tr_2 after update on hop_dong for each row 
+begin
+if datediff(new.ngay_ket_thuc , old.ngay_bat_dau) < 2 then
+signal sqlstate '45000' set message_text = 'Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày';
+end if; 
+end;
+// delimiter ;
+ -- chay thu trigger 
+ update hop_dong set ngay_ket_thuc = '2019-01-16' where (id_hop_dong = 3);
+ 
+-- cau 27 :
+-- Tạo user function thực hiện yêu cầu sau:
+-- Tạo user function func_1: Đếm các dịch vụ đã được sử dụng với Tổng tiền là > 2.000.000 VNĐ.
+-- Tạo user function Func_2: Tính khoảng thời gian dài nhất tính từ lúc bắt đầu làm hợp đồng đến lúc kết thúc hợp đồng 
+-- mà Khách hàng đã thực hiện thuê dịch vụ 
+-- (lưu ý chỉ xét các khoảng thời gian dựa vào từng lần làm hợp đồng thuê dịch vụ, không xét trên toàn bộ các lần làm hợp đồng). 
+-- Mã của Khách hàng được truyền vào như là 1 tham số của function này.
 
 
-
-       
