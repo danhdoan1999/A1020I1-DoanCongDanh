@@ -1,6 +1,5 @@
 .body-onepiece{
     display: flex;
-    width: 100vw;
     height: 100vh;
     background: url("hinh_anh/luffy.jpg");
     background-size: cover ;
@@ -10,7 +9,7 @@ strong{
 }
 .big-title{
     padding: 10px;
-    background-color: #ffc846;
+    background-color: #ffad03;
     text-align: center;
 }
 .title-chapter{
