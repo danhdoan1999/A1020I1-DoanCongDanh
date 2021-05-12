@@ -23,8 +23,6 @@
     </label>
     <input type="submit" value="calculate">
   </form>
-  <h2><c:out value="${result}">
-    
-  </c:out></h2>
+  <h2><c:out value="${result}"></c:out></h2>
   </body>
 </html>

@@ -14,8 +14,13 @@ public class CalculateServlet extends HttpServlet {
 
         float result = Calculate.calcutate(firstNum,secondNum,operator);
 
-        request.setAttribute("result", "kết quả " + result);
-        request.getRequestDispatcher("/index.jsp").forward(request,response);
+        try {
+            request.setAttribute("result", "kết quả " + result);
+            request.getRequestDispatcher("/index.jsp").forward(request,response);
+        }catch (Exception ex){
+            request.setAttribute("result",ex.getMessage());
+        }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
