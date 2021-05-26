@@ -30,22 +30,17 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void update() {
-
+    public void update(int id , Product product) {
+        productMap.put(id,product);
     }
 
     @Override
-    public void remove() {
-
+    public void remove(int id) {
+        productMap.remove(id);
     }
 
     @Override
-    public Product detail() {
-        return null;
-    }
-
-    @Override
-    public Product searchById() {
-        return null;
+    public Product searchById(int id) {
+        return productMap.get(id);
     }
 }

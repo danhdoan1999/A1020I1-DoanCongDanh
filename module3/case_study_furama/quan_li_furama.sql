@@ -152,11 +152,12 @@ values(1,2,1,1,'2021-03-10','2021-03-13',2000000,6000000),
 	  (3,4,3,3,'2019-07-15','2019-07-20',3000000,5000000),
 	  (4,2,5,4,'2019-11-11','2019-02-15',1000000,5000000),
       (5,4,6,2,'2019-02-15','2019-06-09',2000000,3000000),
-      (6,5,2,4,'2018-02-15','2018-03-10',1000000,4000000);
+      (6,5,2,4,'2018-02-15','2018-03-10',1000000,4000000),
+      (7,2,4,4,'2016-03-31','2016-04-04',2000000,5000000);
 insert into hop_dong_chi_tiet
 values (1,3,2,1),
-	   (2,1,3,3);
-       
+	   (2,1,3,3),
+       (3,2,3,3);
 -- cau 2 :
 -- Hiển thị thông tin của tất cả nhân viên có trong hệ thống 
 -- có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” và có tối đa 15 ký tự.
@@ -284,7 +285,7 @@ select hd.ngay_bat_dau from hop_dong hd where (hd.ngay_bat_dau between '2019-01-
 );
 
 -- cau 13 : 
-select dvdk.id_dvdk , dvdk.ten_dv,dvdk.gia_dv,dvdk.don_vi from dich_vu_di_kem dvdk
+select distinct dvdk.id_dvdk , dvdk.ten_dv,dvdk.gia_dv,dvdk.don_vi from dich_vu_di_kem dvdk
 inner join hop_dong_chi_tiet hdct on dvdk.id_dvdk = hdct.id_dvdk 
 inner join hop_dong hd on hd.id_hop_dong = hdct.id_hop_dong
 where exists (
@@ -319,24 +320,29 @@ delete from nhan_vien nv where not exists (
 select nv.id_nhan_vien from hop_dong hd where (hd.ngay_bat_dau between '2017-01-01' and '2019-12-31') and hd.id_nhan_vien = nv.id_nhan_vien
 );
 -- cau 17 : 
-update loai_khach set ten_loai_khach = 'diamond' where exists (
-select kh.id_loai_khach , kh.ho_ten_kh , hd.ngay_ket_thuc , sum(hd.tong_tien) as 'tong tien cac dv' from loai_khach lk inner join khach_hang kh on kh.id_loai_khach = lk.id_loai_khach
-										   inner join hop_dong hd on hd.id_khach_hang = kh.id_khach_hang 
-										   where ten_loai_khach = 'platinium' and year(ngay_bat_dau) = '2019'
-                                           group by hd.id_khach_hang having sum(hd.tong_tien) > 10000000
-); 
--- cau 18 : 
-delete khach_hang,hop_dong,hop_dong_chi_tiet  from khach_hang kh inner join hop_dong hd on kh.id_khach_hang = hd.id_khach_hang 
-																	inner join hop_dong_chi_tiet hdct on hdct.id_hop_dong = hd.id_hop_dong
-                                                                    where not exists(select hd.id_hop_dong where year(hd.ngay_bat_dau) > '2016'
-																											and hd.id_khach_hang = kh.id_khach_hang);
-                                                                                                            
--- cau 19 : 
-update dich_vu_di_kem dvdk inner join (
-select dvdk.ten_dv as 'ten_dich_vu' from hop_dong_chi_tiet hdct inner join dich_vu_di_kem dvdk on dvdk.id_dvdk = hdct.id_dvdk
-group by dvdk.id_dvdk having count(hdct.id_dvdk) > 2
-) as temp set dvdk.gia_dv = dvdk.gia_dv*2 where dvdk.ten_dv = temp.ten_dich_vu;
+update khach_hang kh , (select hd.id_khach_hang as id_temp , sum(hd.tong_tien) from hop_dong hd 
+										   where year(ngay_bat_dau) = '2019'
+                                           group by hd.id_khach_hang having sum(hd.tong_tien) > 10000000) as temp
+						set kh.id_loai_khach = (select lk.id_loai_khach from loai_khach lk where ten_loai_khach = 'diamond')
+                        where kh.id_loai_khach = (select lk.id_loai_khach from loai_khach lk where ten_loai_khach = 'platinium') 
+                        and temp.id_temp = kh.id_khach_hang;
+                        
+select * from khach_hang ; 
 
+-- cau 18 :
+delete from khach_hang kh where exists(   
+select hd.id_khach_hang from hop_dong hd where year(hd.ngay_bat_dau) <= 2016 and hd.id_khach_hang = kh.id_khach_hang
+); 
+ select * from khach_hang ;                                                                                                          
+-- cau 19 : 
+update dich_vu_di_kem dvdk inner join (select dvdk.id_dvdk as 'id_temp' , count(hdct.id_dvdk) as 'so_lan_su_dung' 
+													 from hop_dong_chi_tiet hdct
+                                                     inner join hop_dong hd on hdct.id_hop_dong = hd.id_hop_dong
+                                                     inner join dich_vu_di_kem dvdk on dvdk.id_dvdk = hdct.id_dvdk
+                                                     where year(hd.ngay_bat_dau) = '2019' and dvdk.id_dvdk = hdct.id_dvdk 
+                                                     group by hdct.id_dvdk having so_lan_su_dung <= 2 ) 
+						   as temp set dvdk.gia_dv =  dvdk.gia_dv*2 where dvdk.id_dvdk = temp.id_temp;
+select * from dich_vu_di_kem;
 -- cau 20 : 
 select id_nhan_vien as 'id',ten,ngay_sinh,cmnd,sdt,email,dia_chi,"nhanvien" from nhan_vien
 union all
@@ -452,5 +458,4 @@ select func_2(6) as 'thoi gian dai nhat'
 // delimiter 
 
 -- cau 28 : 
-                                                
                                                 

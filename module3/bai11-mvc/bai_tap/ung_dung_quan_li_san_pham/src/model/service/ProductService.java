@@ -9,12 +9,10 @@ List<Product> showAll();
 
 void createProduct(Product product);
 
-void update();
+void update(int id, Product product);
 
-void remove();
+void remove(int id);
 
-Product detail();
-
-Product searchById();
+Product searchById(int id);
 
 }

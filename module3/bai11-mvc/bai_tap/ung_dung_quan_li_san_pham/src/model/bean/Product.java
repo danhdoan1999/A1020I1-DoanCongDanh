@@ -1,7 +1,7 @@
 package model.bean;
 
 public class Product {
-    private Integer id;
+    private int id;
     private String nameProduct;
     private String priceProduct;
     private String description;
@@ -10,7 +10,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(Integer id, String nameProduct, String priceProduct, String description, String madeBy) {
+    public Product(int id, String nameProduct, String priceProduct, String description, String madeBy) {
         this.id = id;
         this.nameProduct = nameProduct;
         this.priceProduct = priceProduct;

@@ -5,11 +5,17 @@
     <title>Title</title>
 </head>
 <body>
+<div align="center">
     <h1>User Management</h1>
     <h2>
         <a href="/users?action=create">Add New User</a>
     </h2>
+</div>
 <div align="center">
+    <form action="/users?action=search">
+        <input type="text" name="searchName">
+        <input type="submit" value="Search by address">
+    </form>
     <table border="1" cellpadding="5">
         <caption><h2>List of Users</h2></caption>
         <tr>

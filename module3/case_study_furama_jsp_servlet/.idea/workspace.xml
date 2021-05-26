@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d877546e-432b-4ea3-bc86-8e9f775a8634" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../bai14_dependencyManagement/thuc_hanh/src/main/java/controller/UserServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bai14_dependencyManagement/thuc_hanh/src/main/java/dao/BaseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bai14_dependencyManagement/thuc_hanh/src/main/java/dao/IUserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bai14_dependencyManagement/thuc_hanh/src/main/java/dao/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bai14_dependencyManagement/thuc_hanh/src/main/java/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bai14_dependencyManagement/thuc_hanh/src/main/webapp/user/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bai14_dependencyManagement/thuc_hanh/src/main/webapp/user/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bai14_dependencyManagement/thuc_hanh/src/main/webapp/user/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project_furama/src/main/webapp/pages/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module1/Case-study/yeucau1/Module1_AccountName.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module1/Case-study/yeucau1/Module1_AccountName.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module1/DoiTuong/Bai_tap/diChuyenDoiTuong/objects" beforeDir="false" afterPath="$PROJECT_DIR$/../../module1/DoiTuong/Bai_tap/diChuyenDoiTuong/objects" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/artifacts/ung_dung_quan_li_san_pham_war_exploded/WEB-INF/classes/controller/ProductServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/artifacts/ung_dung_quan_li_san_pham_war_exploded/WEB-INF/classes/controller/ProductServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/artifacts/ung_dung_quan_li_san_pham_war_exploded/WEB-INF/classes/model/bean/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/artifacts/ung_dung_quan_li_san_pham_war_exploded/WEB-INF/classes/model/bean/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/artifacts/ung_dung_quan_li_san_pham_war_exploded/WEB-INF/classes/model/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/artifacts/ung_dung_quan_li_san_pham_war_exploded/WEB-INF/classes/model/service/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/artifacts/ung_dung_quan_li_san_pham_war_exploded/WEB-INF/classes/model/service/ProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/artifacts/ung_dung_quan_li_san_pham_war_exploded/WEB-INF/classes/model/service/ProductServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/artifacts/ung_dung_quan_li_san_pham_war_exploded/product/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/artifacts/ung_dung_quan_li_san_pham_war_exploded/product/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/production/ung_dung_quan_li_san_pham/controller/ProductServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/production/ung_dung_quan_li_san_pham/controller/ProductServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/production/ung_dung_quan_li_san_pham/model/bean/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/production/ung_dung_quan_li_san_pham/model/bean/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/production/ung_dung_quan_li_san_pham/model/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/production/ung_dung_quan_li_san_pham/model/service/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/production/ung_dung_quan_li_san_pham/model/service/ProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/out/production/ung_dung_quan_li_san_pham/model/service/ProductServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/src/controller/ProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/src/controller/ProductServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/src/model/bean/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/src/model/bean/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/src/model/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/src/model/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/src/model/service/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/src/model/service/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/web/product/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/web/product/detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/web/product/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/web/product/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/web/product/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/bai_tap/ung_dung_quan_li_san_pham/web/product/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/.idea/artifacts/quan_li_khach_hang_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/.idea/artifacts/quan_li_khach_hang_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/.idea/libraries/jstl_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/.idea/libraries/jstl_1_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/.idea/libraries/mysql_connector_java_8_0_25.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/out/artifacts/quan_li_khach_hang_war_exploded/customer/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/out/artifacts/quan_li_khach_hang_war_exploded/customer/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/out/artifacts/quan_li_khach_hang_war_exploded/customer/delete.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/out/artifacts/quan_li_khach_hang_war_exploded/customer/delete.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/out/artifacts/quan_li_khach_hang_war_exploded/customer/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/out/artifacts/quan_li_khach_hang_war_exploded/customer/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/out/artifacts/quan_li_khach_hang_war_exploded/customer/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/out/artifacts/quan_li_khach_hang_war_exploded/customer/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/out/artifacts/quan_li_khach_hang_war_exploded/customer/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/out/artifacts/quan_li_khach_hang_war_exploded/customer/view.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/quan_li_khach_hang.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/quan_li_khach_hang.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/src/controller/CustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/src/controller/CustomerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/src/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/src/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/src/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/src/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/src/service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/src/service/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/web/customer/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/web/customer/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/web/customer/delete.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/web/customer/delete.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/web/customer/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/web/customer/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/web/customer/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/web/customer/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/web/customer/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../bai11-mvc/thuc_hanh/quan_li_khach_hang/web/customer/view.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/artifacts/quan_li_user_war_exploded/WEB-INF/classes/controller/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/artifacts/quan_li_user_war_exploded/WEB-INF/classes/controller/UserServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/artifacts/quan_li_user_war_exploded/WEB-INF/classes/dao/BaseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/artifacts/quan_li_user_war_exploded/WEB-INF/classes/dao/BaseRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/artifacts/quan_li_user_war_exploded/WEB-INF/classes/dao/IUserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/artifacts/quan_li_user_war_exploded/WEB-INF/classes/dao/IUserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/artifacts/quan_li_user_war_exploded/WEB-INF/classes/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/artifacts/quan_li_user_war_exploded/WEB-INF/classes/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/artifacts/quan_li_user_war_exploded/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/artifacts/quan_li_user_war_exploded/user/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/production/quan_li_user/controller/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/production/quan_li_user/controller/UserServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/production/quan_li_user/dao/BaseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/production/quan_li_user/dao/BaseRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/production/quan_li_user/dao/IUserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/production/quan_li_user/dao/IUserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/production/quan_li_user/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/out/production/quan_li_user/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/src/controller/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/src/controller/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/src/dao/BaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/src/dao/BaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/src/dao/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/src/dao/IUserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/src/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/src/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/web/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/quan_li_user/web/user/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/user_database_simple.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../bai12-jdbc-crud/thuc_hanh/user_database_simple.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_furama/quan_li_furama.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_furama/quan_li_furama.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1syw0V1OSxZ9t8bcJGhCNumNhzE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/project_furama" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d877546e-432b-4ea3-bc86-8e9f775a8634" name="Default Changelist" comment="" />
+      <created>1621857913451</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1621857913451</updated>
+      <workItem from="1621857914786" duration="22000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1621857935413">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1621857935413" />
+  </component>
+</project>
