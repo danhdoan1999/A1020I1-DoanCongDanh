@@ -1,4 +1,7 @@
 package com.example.repository;
 
-public interface ProvinceRepository {
+import com.example.model.Province;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProvinceRepository extends JpaRepository<Province, Integer> {
 }
