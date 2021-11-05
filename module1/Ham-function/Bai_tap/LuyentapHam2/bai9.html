@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="checkChar()">
+    <script>
+        function checkChar(){
+            let string = prompt("nhap vao chuoi ki tu")
+            let a = prompt("nhap vao ki tu can kiem tra ")
+            var count = 0;
+            var check;
+            for(let i = 0 ; i < string.length ; i++){
+                if(a === string[i]){
+                    count++;
+                    check = true;
+                }
+            }
+            if(check){
+                document.write("ki tu " + a + " xuat hien " + count + " lan trong chuoi " + string)
+            } else {
+                document.write("khong co ki tu " + a + " trong chuoi " + string)
+            }
+        }
+    </script>
+</body>
+</html>

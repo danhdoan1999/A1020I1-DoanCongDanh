@@ -1,0 +1,54 @@
+package com.example.model;
+
+import javax.persistence.*;
+import javax.validation.constraints.Positive;
+
+@Entity
+public class ContractDetail {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer contractDetailId;
+    @ManyToOne
+    @JoinColumn(name = "contractId" , referencedColumnName = "contractId",nullable = false)
+    private Contract contract;
+    @ManyToOne
+    @JoinColumn(name = "attachServiceId",referencedColumnName = "attachServiceId",nullable = false)
+    private AttachService attachService;
+    @Positive
+    private Integer quantity;
+
+    public ContractDetail() {
+    }
+
+    public Integer getContractDetailId() {
+        return contractDetailId;
+    }
+
+    public void setContractDetailId(Integer contractDetailId) {
+        this.contractDetailId = contractDetailId;
+    }
+
+    public Contract getContract() {
+        return contract;
+    }
+
+    public void setContract(Contract contract) {
+        this.contract = contract;
+    }
+
+    public AttachService getAttachService() {
+        return attachService;
+    }
+
+    public void setAttachService(AttachService attachService) {
+        this.attachService = attachService;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="" id="inp" >
+        <input type="button" name="" id="btn" onclick="searchWorld()" value="Tim kiem">
+        <p id="res"></p>
+    </form>
+    <script>
+        function searchWorld(){
+            var inp = document.getElementById("inp").value;
+            var res = document.getElementById("res");
+            var eng = ["handsome","animal","danh đoàn","hello","girl","tùng nguyên"];
+            var vng = ["đẹp trai","động vật","dễ thương","xin chào","con gái","mặt ngu"];
+            var check = false;
+            var index;
+            for(var i = 0 ; i < eng.length ;i++){
+                if(eng[i] === inp){
+                    check = true;
+                    index = i;
+                    break;
+                }
+            }
+            if (check){
+                res.innerHTML = vng[index]
+            } else {
+                res.innerHTML = "khong tim thay"
+            }
+        }
+    </script>
+</body>
+</html>

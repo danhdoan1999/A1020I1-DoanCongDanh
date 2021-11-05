@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let tempName = "";
+        let nameCustomer = prompt("Nhập tên khách hàng")
+        nameCustomer = nameCustomer.trim().toLowerCase(); // trim() bo ki tu trong 2 ben , lower ham chuyen doi chu thuong
+        for(let i = 0 ; i<nameCustomer.length;i++){
+            if(nameCustomer.charAt(i)===" "&&nameCustomer.charAt(i+1)===" "){ // charAt tra ve gia tri Char cua chuoi co chi so index dc chi dinh
+                continue;
+            }
+            if(i===0 || nameCustomer.charAt(i-1)===" "){
+                tempName+=nameCustomer.charAt(i).toUpperCase();
+                continue;
+            }
+            tempName += nameCustomer.charAt(i);
+        }
+        alert(tempName)
+        let check = false;
+        do{
+            let customerID = prompt("Nhập CMND khách hàng")
+            if(!isNaN(customerID)){
+                customerID=Number.parseFloat(customerID)
+            }
+            if(!Number.isInteger(customerID)){
+                alert("CMND khong dung")
+                continue;
+            }
+            if(customerID<100000000||customerID>999999999){
+                alert("CMND khong dung")
+                continue;
+            }
+            check=true;
+        }while(!check)
+        check = false;
+        do{
+            let birthDay = prompt("Nhập ngày sinh khách hàng")
+            if(birthDay.charAt(2)==="/"&&birthDay.charAt(5)==="/"){ 
+                let day=birthDay.substring(0,2);
+                let month=birthDay.substring(3,5);
+                let year=birthDay.substring(6,10);
+                if(!isNaN(day)&&!isNaN(month)&&!isNaN(year)){
+                    day=Number.parseFloat(day);
+                    month=Number.parseFloat(month);
+                    year=Number.parseFloat(year);
+                    if(Number.isInteger(day)&&Number.isInteger(month)&&Number.isInteger(year)){
+                        if(day<32&&month<13&&year>1800){
+                            check = true;
+                        }
+                    }                   
+                }
+                if(!check){
+                    alert("nhap lai dey ban oi !")
+                } 
+            }
+        }while(!check)
+        check = false;
+        do{
+            let countA = 0;
+            let countC = 0;
+            let emailCustomer = prompt("Nhập email khách hàng")
+            for(let i = 0 ; i<emailCustomer.length;i++){
+                if(emailCustomer.charAt(i)==="@"){
+                    countA++;
+                    for(let j = i+1;j<emailCustomer.length;j++){
+                        if(emailCustomer.charAt(j)==="."){
+                            countC++;
+                        }
+                    }
+                }
+            }
+            if(countA!=1||countC!=1){
+                alert("Email ban nhap ko dung")
+            }else {
+                check = true;
+            }
+        }while(!check)
+        check = false;
+
+        let typeCard = prompt("Loại thẻ thành viên")
+        let discount = parseInt(prompt("phần trăm giảm giá"))
+        let amount = prompt("số lượng")
+        do{
+            let rentsDay = prompt("số ngày thuê")
+            if(!isNaN(rentsDay)){
+                rentsDay = Number.parseFloat(rentsDay); // kiem tra xem rentsDay co phai so nguyen duong hay k !
+                if(Number.isInteger(rentsDay)&&rentsDay>0){
+                    check = true;
+                }
+            }
+            if(!check){
+                alert("nhap vao so nguyen duong")
+            }
+        }while(!check)
+        check = false;
+        let typeService = prompt(" Nhập loại dịch vụ")
+        let typeRoom = prompt("Nhập loại phòng")
+        let address = prompt("Nhap dia chi");
+
+    </script>
+</body>
+</html>

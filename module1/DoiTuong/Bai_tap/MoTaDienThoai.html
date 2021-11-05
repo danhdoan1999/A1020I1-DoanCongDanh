@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Mobile{
+            constructor(sttPin,sttMobile){
+                this.sttPin = 11;
+                this.sttMobile = true;
+                this.vungNhoSoanThao = [];
+                this.vungNhoDaGui = [];
+                this.vungNhoDaNhan = [];
+            }
+            statusOfPin(){
+                return this.sttMobile;
+            }
+            getPin(){
+                return this.sttPin;
+            }
+            OnOffMobile(){        
+                this.sttMobile = !this.sttMobile;
+                this.sttPin--;
+            }
+            getEnergy(){
+                this.sttPin = 100;
+            }
+            textingMes(tinNhan){
+                if(this.sttPin > 10){
+                    this.vungNhoSoanThao.push(tinNhan)
+                }else{
+                    alert("Low Beraty , need energy !")
+                    this.getEnergy();
+                }
+                this.sttPin--;
+            }
+            mesGet(tinNhan){
+                this.vungNhoDaNhan.push(tinNhan)
+                this.sttPin--;
+            }
+            guiMes(dienThoai,tinNhan){
+                this.textingMes(tinNhan)
+                this.vungNhoDaGui = this.vungNhoSoanThao;
+                dienThoai.mesGet(this.vungNhoDaGui)
+                this.sttPin--;
+            }
+            showTNdaGui(){
+                alert(this.vungNhoDaGui)
+                this.sttPin--;
+            }
+            getTNdaNhan(){
+                this.sttPin--;
+                return (this.vungNhoDaNhan);
+            }
+        }
+        let iphone = new Mobile()
+        let nokia = new Mobile()
+        iphone.guiMes(nokia, "Xin chào Nokia");
+        iphone.showTNdaGui();
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        form{
+            height: 270px;
+            width: 540px;
+            background-color: beige;
+            text-align: center;
+        }
+        table tr td{
+            text-align: left;
+            padding: 5px;
+            color: orange;
+        }
+        table{
+            margin-left:155px;
+        }
+        h2{
+            background-color: orange;
+            width: 520px;
+            position: relative;
+            top: 7px;
+            left: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <form>
+        <h2>SỞ THÍCH CỦA BẠN</h2>
+            <div><p>Họ và Tên <input  type="text" name="yourname"></p></div>
+            <div><p style="margin-left: 30px">Email <input  type="text" name="email"></p></div>
+
+                <table>
+                    <tr>
+                        <td style="color: black">Sở thích</td>
+                        <td><input type="checkbox" name="hobby">Thể Thao</td>
+                        <td><input type="checkbox" name="hobby">Âm nhạc</td>
+                        <td><input type="checkbox" name="hobby">Đọc sách</td>
+                    </tr>
+
+
+                    <tr>
+                        <td></td>
+                        <td><input type="checkbox" name="hobby">Lướt web</td>
+                        <td><input type="checkbox" name="hobby">Chơi game</td>
+                        <td><input type="checkbox" name="hobby">Điện ảnh</td>
+                    </tr>
+
+
+                    <tr>
+                        <td></td>
+                        <td><input type="checkbox" name="hobby">Du lịch</td>
+
+                    </tr>
+                </table> <br>
+            <div><input type="submit" value="Gửi thông tin"> <input type="reset" value="Nhập lại"></div>
+    </form>
+</body>
+</html>

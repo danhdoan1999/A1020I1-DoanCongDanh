@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="res"></div>
+    <div id="res2"></div>
+    <script>
+        class Temperature {
+            constructor(c){
+                this.c = c; 
+            }
+            cSangF(){
+                    return this.c*9/5 + 23
+                }
+            cSangK(){
+                    return this.c + 273.15
+                }
+        }
+        let tem = new Temperature(25);
+        tem.cSangF();
+        tem.cSangK();
+        document.getElementById("res").innerHTML = "Do C sang do F la : " + tem.cSangF()
+        document.getElementById("res2").innerHTML = "Do C sang do K la : " + tem.cSangK()
+    </script>
+</body>
+</html>

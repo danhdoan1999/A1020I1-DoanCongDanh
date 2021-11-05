@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<header th:replace="/layout :: header"></header>
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div style="padding-top: 3rem" class="col-lg-2">
+        <a class="btn btn-success" href="/customer">Back To list contract</a>
+    </div>
+    <div class="col-lg-9">
+        <h1>Detail Contract Views</h1>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="idContract">Id Contract</label>
+                    <p class="form-control" id="idContract" th:text="*{contractObject.contractId}">
+                </div>
+            </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="startDay">Start Day</label>
+                <p class="form-control" id="startDay" th:text="*{contractObject.contractStartDate}">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="endDay">End Day</label>
+                <p class="form-control" id="endDay" th:text="*{contractObject.contractEndDate}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="deposit">Start Day</label>
+                <p class="form-control" id="deposit" th:text="*{contractObject.contractDeposit}">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="total">End Day</label>
+                <p class="form-control" id="total" th:text="*{contractObject.contractTotalMoney}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="customer">Name of customer hided :</label>
+                <p class="form-control" id="customer" th:text="*{contractObject.customer.name}">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="customerPhone">Phone number of customer</label>
+                <p class="form-control" id="customerPhone" th:text="*{contractObject.customer.phone}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="address">Address Customer :</label>
+                <p class="form-control" id="address" th:text="*{contractObject.customer.address}">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="idCart">ID Card : </label>
+                <p class="form-control" id="idCart" th:text="*{contractObject.customer.idCard}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="name">Name Service : </label>
+                <p class="form-control" id="name" th:text="*{contractObject.service.serviceName}">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="cost">ID Card : </label>
+                <p class="form-control" id="cost" th:text="*{contractObject.service.serviceCost}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="attach">Attach Service Name : </label>
+                <p class="form-control" id="attach" th:text="*{contractDetail.attachService.attachServiceName}">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="quantity">ID Card : </label>
+                <p class="form-control" id="quantity" th:text="*{contractDetail.quantity}">
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

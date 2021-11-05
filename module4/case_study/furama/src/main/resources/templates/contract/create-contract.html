@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<header th:replace="/layout :: header"></header>
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div style="padding-top: 3rem" class="col-lg-2">
+        <a class="btn btn-success" href="/contract">Back To list Contract</a>
+    </div>
+    <div class="col-lg-9">
+        <h3 class="text-success" th:if="${message != null}">
+            <span th:text="${message}"></span>
+        </h3>
+        <h1>Add New Customer</h1>
+        <form method="post" th:action="@{/contract/create}" th:object="${contract}">
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label for="startDay">Start Day</label>
+                    <input type="date" class="form-control" id="startDay" th:field="*{contractStartDate}"  placeholder="Input name customer">
+                    <p class="text-danger" th:if="${#fields.hasErrors('contractStartDate')}" th:errors="*{contractStartDate}"></p>
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="endDay">End Day</label>
+                    <input type="date" class="form-control" id="endDay" th:field="*{contractEndDate}">
+                    <p class="text-danger" th:if="${#fields.hasErrors('contractEndDate')}" th:errors="*{contractEndDate}"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="deposit">Deposit</label>
+                    <input type="text" class="form-control" id="deposit"  placeholder="Input deposit" th:field="*{contractDeposit}">
+                    <p class="text-danger" th:if="${#fields.hasErrors('contractDeposit')}" th:errors="*{contractDeposit}"></p>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="money">Total Money</label>
+                    <input type="text" class="form-control" id="money"  placeholder="Input total money" th:field="*{contractTotalMoney}">
+                    <p class="text-danger" th:if="${#fields.hasErrors('contractTotalMoney')}" th:errors="*{contractTotalMoney}"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="staff">Staff Contracting</label>
+                    <select id="staff" class="form-control" th:field="*{employee}">
+                        <option th:each="employee : ${employeeContract}" th:value="${employee.employeeId}" th:text="${employee.name}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="customer">Customer Contracting</label>
+                    <select id="customer" class="form-control" th:field="*{customer}">
+                        <option th:each="customer : ${customerContract}" th:value="${customer.customerId}" th:text="${customer.name}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="service">Service Contracting</label>
+                    <select id="service" class="form-control" th:field="*{service}">
+                        <option th:each="service : ${serviceContract}" th:value="${service.serviceId}" th:text="${service.serviceName}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <button type="submit" class="btn btn-success">Create Contract</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

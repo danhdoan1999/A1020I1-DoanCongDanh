@@ -1,0 +1,11 @@
+begin
+		Nhập a,b,c
+	if a > b and a > c
+		output a
+	else if b > c
+		output b
+	     else
+		output c
+	     end if
+	end if
+end

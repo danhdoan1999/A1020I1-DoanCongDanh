@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Bài 1 : Chuyển từ độ C sang độ F. </h2>
+    <input type="button" name="" id="" onclick="bai1()" value="Bai 1">
+    <h2>Bài 2 : Chuyển từ mét sang feet: </h2>
+    <input type="button" name="" id="" onclick="bai2()" value="Bai 2">
+    <h2>Bài 3 : Tính diện tích hình vuông khi biết cạnh a. </h2>
+    <input type="button" name="" id="" onclick="bai3()" value="Bai 3">
+    <h2>Bài 4 : Tính diện tích hình  chữ nhật khi biết 02 cạnh a, b. </h2>
+    <input type="button" name="" id="" onclick="bai4()" value="Bai 4">
+    <h2>Bài 5 : Tính diện tích tam giác vuông khi biết 02 cạnh kề a, b.</h2>
+    <input type="button" name="" id="" onclick="bai5()" value="Bai 5">
+    <h2>Bài 6 : Giải phương trình bậc 1.</h2>
+    <input type="button" name="" id="" onclick="bai6()" value="Bai 6">
+    <h2>Bài 7 : Giải phương trình bậc 2.</h2>
+    <input type="button" name="" id="" onclick="bai7()" value="Bai 7">
+    <h2>Bài 8 : Kiểm tra xem một số nhập vào có phải là tuổi của một người không. Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0.</h2>
+    <input type="button" name="" id="" onclick="bai8()" value="Bai 8">
+    <h2>Bài 9 : Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác</h2>
+    <input type="button" name="" id="" onclick="bai9()" value="Bai 9">
+    <h2>Bài 10 : Viết chương trình tính giá điện. </h2>
+    <input type="button" name="" id="" onclick="bai10()" value="Bai 10">
+    <h2>Bài 11 : Viết chương trình tính thuế thu nhập cá nhân. </h2>
+    <input type="button" name="" id="" onclick="bai11()" value="Bai 11">
+    <h2>Bài 12 : Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng. </h2>
+    <input type="button" name="" id="" onclick="bai12()" value="Bai 12">
+    
+    <script>
+        function bai1(){
+            var c = prompt("nhap vao do C : ")
+            var f = (c*9)/5 + 32 
+            alert("do F la : " + f )
+        }
+        function bai2(){
+            var m = prompt("nhap vao met : ")
+            var ft = m*3.2808
+            alert("so feet la : " + ft) 
+        }
+        function bai3(){
+            var a = prompt("nhap vao canh hinh vuong ")
+            var svuong = a*a
+            alert("dien tich hinh vuong la : " + svuong)
+        }
+        function bai4(){
+            var chieudai = prompt("nhap vao chieu dai : ")
+            var chieurong = prompt("nhap vao chieu rong : ")
+            var scn = chieudai*chieurong
+            alert("dien tich hinh chu nhat la : " + scn )
+        }
+        function bai5(){
+            var canha = prompt("nhap vao canh ke thu 1 : ")
+            var canhb = prompt("nhap vao canh ke thu 2 : ")
+            var stg = 1/2 * canha * canhb
+            alert("dien tich tam giac vuong la : " +stg)
+        }
+        function bai6(){
+            var aa = prompt("nhap vao a")
+            var bb = prompt("nhap vao b")
+            var x = -bb/aa
+            alert("x = " + x)
+        }
+        function bai7(){
+            var numA = parseInt(prompt("nhap vao a"))
+            var numB = parseInt(prompt("nhap vao b"))
+            var numC = parseInt(prompt("nhap vao c"))
+            var deta = numB*numB - 4*numA*numC
+            if(deta > 0){ 
+                        x1 = (-numB - Math.sqrt(deta))/2*numA
+                        x2 = (-numB + Math.sqrt(deta))/2*numA
+                alert("Phương trình có 2 nghiệm x1 = " + x1 + " x2 = " + x2)
+            } else if(deta == 0){
+                        x12 = (-numB) / 2*numA
+                alert("Phương trình có nghiệm kép x = " + x12)
+            } else {
+                alert("Phương trình vô nghiệm")
+            }
+         }
+         function bai8(){
+             var sotuoi = prompt("nhap vao so tuoi : ")
+             if(sotuoi < 0){
+                 alert("do khong phai la tuoi cua 1 người ")
+             } else if (sotuoi > 120){
+                 alert(" do khong phai la tuoi cua 1 nguoi ")
+             } else {
+                 alert("đó là tuổi của 1 người ")
+             }
+         } 
+         function bai9(){
+             var canh1 = parseInt(prompt("nhap vao canh 1 : "))
+             var canh2 = parseInt(prompt("nhap vao canh 2 : "))
+             var canh3 = parseInt(prompt("nhap vao canh 3 : "))
+             if(canh1 > 0 && canh2 > 0 && canh3 > 0){
+                if(canh1 + canh2 > canh3 && canh2 + canh3 > canh1 && canh1 + canh3 > canh2){
+                    alert("đó là 3 cạnh của 1 tam giác")
+                } else {
+                    alert("đó không phải 3 cạnh của tam giác")
+                }
+             } else {
+                 alert("xin mời nhập vào đúng 3 cạnh ")
+             }
+         }
+         function bai10(){
+             var kwh = parseInt(prompt("nhập vào kWh : "))
+             if(kwh > 0){
+                if(kwh < 100){
+                    giatien = kwh*1734
+                    alert("giá tiền là : " + giatien)
+                } else if(kwh < 200){
+                    giatien = kwh*2014
+                    alert("giá tiền là : " + giatien)
+                } else if(kwh < 300){
+                    giatien = kwh*2536
+                    alert("giá tiền là " + giatien)
+                } else {
+                    giatien = kwh*2834
+                    alert("giá tiền là " + giatien )
+                }
+             } else {
+                 alert("xin mời nhập vào đúng kWh ")
+             }
+         }
+    </script>
+</body>
+</html>

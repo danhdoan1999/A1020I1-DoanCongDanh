@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nameCustomer = "Danh";
+        let customerID = "201814047";
+        let birthDay = "2/12/1999";
+        let emailCustomer = "danhdoan19999@gmail.com";
+        let typeCard = "Diamond";
+        let discount = 10;
+        let amount = 10;
+        let rentsDay = 7;
+        let typeService = "Villa";
+        let typeRoom = "Vip";
+        let address = "Đà Nẵng";
+        let payment;
+        let chooseSection = parseInt(prompt("1. Hiển thị thông tin khách hàng " + "\n" + 
+                                    "2. Chỉnh sửa thông tin khách hàng" + "\n" + 
+                                    "3. Hiển thị giá sau khi được giảm"))
+        switch(chooseSection){
+            case 1:
+            alert("Tên khách hàng : "+  nameCustomer + "\n" + 
+                  "Chứng minh nhân dân : " + customerID + "\n" + 
+                  "Ngày sinh : " + birthDay  +"\n" + 
+                  "Email khách hàng : " +  emailCustomer +"\n" + 
+                  "Loại thẻ thành viên "+  typeCard  +"\n" + 
+                  "Giảm giá : "+  discount +"\n" + 
+                  "Số lượng đi kèm : " +  amount +"\n" + 
+                  "Số lượng ngày thuê : " +  rentsDay +"\n" + 
+                  "Loại dịch vụ : "+  typeService +"\n" + 
+                  "Loại phòng : "+  typeRoom + "\n" +
+                  "Địa chỉ : "+ address)
+                break;
+            case 2:
+                let edit = parseInt(prompt("1.Tên khách hàng : "+  nameCustomer + "\n" + 
+                  "2.Chứng minh nhân dân : " + customerID + "\n" + 
+                  "3.Ngày sinh : " + birthDay  +"\n" + 
+                  "4.Email khách hàng : " +  emailCustomer +"\n" + 
+                  "5.Loại thẻ thành viên "+  typeCard  +"\n" + 
+                  "6.Giảm giá : "+  discount +"\n" + 
+                  "7.Số lượng đi kèm : " +  amount +"\n" + 
+                  "8.Số lượng ngày thuê : " +  rentsDay +"\n" + 
+                  "9.Loại dịch vụ : "+  typeService +"\n" + 
+                  "10.Loại phòng : "+  typeRoom+ "\n" +
+                  "Địa chỉ : "+ address))
+                  switch(edit){
+                    case 1: 
+                        nameCustomer = prompt("Nhập tên muốn sửa : ")
+                        break;
+                    case 2: 
+                        customerID = prompt("Nhập ID muốn sửa : ")
+                        break;
+                    case 3:
+                        birthDay =  prompt("Nhập ngày sinh muốn sửa : ")
+                        break;
+                    case 4:
+                        emailCustomer = prompt("Nhập email muốn sửa : ")
+                        break;
+                    case 5:
+                        typeCard = prompt("Nhập loại thẻ muốn sửa : ")
+                        break;
+                    case 6:
+                        discount = prompt("Nhập giảm giá muốn sửa : ")
+                        break;
+                    case 7:
+                        amount = prompt("Nhập số lượng đi kèm muốn sửa : ")
+                        break;
+                    case 8:
+                        rentsDay = prompt("Nhập số ngày thuê muốn sửa : ")
+                        break;
+                    case 9:
+                        typeService = prompt("Nhập loại dịch vụ muốn sửa : ")
+                        break;
+                    case 10:
+                        typeRoom = prompt("Nhập loại phòng muốn sửa : ")
+                        break;
+                    case 11:
+                        address = prompt("Nhập địa chỉ muốn sửa : ")
+                        break;    
+                    default:
+                        alert("failed")                                       
+                  }
+                  alert("Tên khách hàng : "+  nameCustomer + "\n" + 
+                  "Chứng minh nhân dân : " + customerID + "\n" + 
+                  "Ngày sinh : " + birthDay  +"\n" + 
+                  "Email khách hàng : " +  emailCustomer +"\n" + 
+                  "Loại thẻ thành viên "+  typeCard  +"\n" + 
+                  "Giảm giá : "+  discount +"\n" + 
+                  "Số lượng đi kèm : " +  amount +"\n" + 
+                  "Số lượng ngày thuê : " +  rentsDay +"\n" + 
+                  "Loại dịch vụ : "+  typeService +"\n" + 
+                  "Loại phòng : "+  typeRoom+ "\n" +
+                  "Địa chỉ : "+ address)
+                break;
+            case 3:
+                let money = 0;
+                if(typeService === "Villa"){
+                        money = 500;
+                    }else if(typeService === "House"){
+                        money = 300;
+                    }else if(typeService ==="Room"){
+                        money = 100;
+                    }
+                let temp = 0;
+                if(address === "Đà Nẵng"){
+                        temp += 20;
+                    }else if(typeService === "Huế"){
+                        temp += 10;
+                    }else if(typeService === "Quảng Nam"){
+                        temp += 5;
+                    }
+
+                if(rentsDay > 7){
+                    temp += 30;   
+                }else if(rentsDay > 5){
+                    temp += 20;
+                }else if(rentsDay > 2){
+                    temp += 10;
+                }
+
+                if(typeCard == "Diamond"){
+                    temp += 15;   
+                }else if(typeCard === "Platium"){
+                    temp += 10;
+                }else if(typeCard === "Gold"){
+                    temp += 5;
+                }else if(typeCard === "Silver"){
+                    temp += 2;
+                }else if(typeCard === "Member"){
+                    temp += 0;
+                }
+                alert("số tiền phải trả là : " + (money*rentsDay-temp)) 
+                break;            
+            default:
+                alert("Bạn hãy chọn các chức năng có trong trình đơn")            
+        }
+    </script>
+</body>
+</html>

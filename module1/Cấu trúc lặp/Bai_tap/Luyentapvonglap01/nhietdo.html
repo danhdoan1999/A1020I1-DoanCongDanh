@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var n = parseInt(prompt("nhap vao nhiet do : "))
+        for(let i = 0 ; i< 10 ; i++){
+            if(n < 20){
+                alert("tang nhiet do");
+                n = parseInt(prompt("nhap vao nhiet do : "))
+            } else if(n>100){
+                alert("giam nhiet do");
+                n = parseInt(prompt("nhap vao nhiet do : "))
+            } else {
+                alert("nhiet do on dinh");
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

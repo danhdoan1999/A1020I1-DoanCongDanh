@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var string = (prompt("Nhap vao chuoi so : "));
+        var array = string.split("");
+        for(let i = 0 ; i <array.length ; i++){
+            if(array[i]%2==0 && array[i+1]%2==0){
+                array.splice(i+1,0,"-")
+                i++;
+            }   
+        }
+        document.write(array.join(""))
+    </script>
+</body>
+</html>

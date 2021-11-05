@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1368px" height="500px"></canvas>
+    <div id="s"></div>
+    <div id="c"></div>
+    <script>
+        class Rectangle {
+            constructor(dai,rong){
+                this.dai = dai;
+                this.rong = rong;
+                this.dienTich = function(){
+                    return dai*rong;
+                }
+                this.chuVi = function(){
+                    return (dai+rong)*2;
+                }
+            }
+        }
+        Rectangle.prototype.display =  function(){
+            let canvasS = document.getElementById("myCanvas");
+            let context = canvasS.getContext("2d");
+            context.rect(30,30,this.dai,this.rong)
+            context.stroke();
+            context.fillStyle = "blue"
+            context.fill();
+        }    
+        let tangle = new Rectangle(400,200)
+        document.getElementById("s").innerHTML = "Dien tich hinh chu nhat la : " + tangle.dienTich()
+        document.getElementById("c").innerHTML = "Chu vi hinh chu nhat la : " + tangle.chuVi()
+        tangle.display();
+    </script>
+</body>
+</html>

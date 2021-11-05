@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="testArr()">
+    <script>
+        function testArr(){
+            let a = parseInt(prompt("nhap vao so phan tu cua mang "))
+            let arr = new Array(a)
+            for(let i = 0 ; i < arr.length ; i++){
+                arr[i] = parseInt(prompt("nhap vao so thu " + (i+1)))
+            }
+            let arr1 = arr.reverse()
+            document.write("ket qua dao nguoc mang la : " + arr1)
+        }
+    </script>
+</body>
+</html>

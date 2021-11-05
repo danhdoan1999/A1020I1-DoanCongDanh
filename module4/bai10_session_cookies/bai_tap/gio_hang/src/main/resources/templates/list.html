@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/css/bootstrap.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-3">
+            <a href="/create"><button class="btn btn-success">Create new product</button></a>
+        </div>
+        <div class="col-lg-6"></div>
+        <div class="col-lg-3">
+            <a class="nav-link" href="/show-cart">
+                <button class="btn btn-primary">Cart</button>
+                <span th:if="${cartNum}" th:text="${'('+cartNum+')'}"></span>
+            </a>
+        </div>
+    </div>
+
+    <h3>Danh sách sản phẩm</h3>
+
+<table class="table" border="1">
+    <tr>
+        <th th:each="product : ${listFlower}">
+            <div style="text-align: center">
+                <a th:href="@{/view-product/{id}(id=${product.getIdProduct()})}">
+                    <img width="200rem" height="300rem" th:src="@{/img/{img}(img = ${product.getImg()})}">
+                </a>
+            </div>
+        </th>
+    </tr>
+    <tr>
+        <td th:each="product : ${listFlower}">
+            <div style="text-align: center">
+                <h3 th:text="${product.getNameProduct()}"></h3>
+                <strike th:text="${product.getOldPrice()}"></strike>vnđ
+                <span style="color: #1c7430" th:text="${product.getNewPrice()}"></span>vnđ
+                <br>
+                <a type="submit" th:href="@{/view-product/{id}(id=${product.getIdProduct()})}"><button class="btn btn-danger" >Buy</button></a>
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

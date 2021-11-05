@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var n = parseInt(prompt("Nhap vao so nguyen duong : "))
+        var res = 1;
+        if(n<0){
+            alert("xin nhap vao so nguyen duong : ")
+            location.reload()
+        } else {
+            for(var i = 1 ; i <= n ; i++){
+            res = res * i
+            }
+        }
+        document.write(res)
+    </script>
+</body>
+</html>

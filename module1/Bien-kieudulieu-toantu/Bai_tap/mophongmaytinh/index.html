@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        input{
+            width: 100px;
+        }
+        td{
+            width: 150px;
+            height: 50px;
+        }
+    </style>
+    <form action="">
+        <h1>Caculation</h1>
+         <input type="text" name="numA" id="numA">
+        <input type="text" name="numB" id="numB"><br><br>
+        <table>
+            <tr>
+                <td><input type="button" onclick="Add('+')" value="Addition(+)"></input></td>
+                <td><input type="button" onclick="Add('-')" value="Subtraction(-)"></input></td>
+                <td><input type="button" onclick="Add('*')" value="Mutilplication(x)"></input></td>
+                <td><input type="button" onclick="Add('/')" value="Division(/)"></input></td>
+            </tr>
+            <tr>
+                <td><input type="button" name="" id="" value="1"></td>
+                <td><input type="button" name="" id="" value="2"></td>
+                <td><input type="button" name="" id="" value="3"></td>
+                <td><input type="button" name="" id="" value="4"></td>
+            </tr>
+            <tr>
+                <td><input type="button" name="" id="" value="5"></td>
+                <td><input type="button" name="" id="" value="6"></td>
+                <td><input type="button" name="" id="" value="7"></td>
+                <td><input type="button" name="" id="" value="8"></td>
+            </tr>
+            <tr>
+                <td><input type="button" name="" id="" value="9"></td>
+                <td><input type="button" name="" id="" value="0"></td>
+                <td><input type="button" name="" id="" value="."></td>
+                <td><input type="button" name="" id="" value="="></td>
+            </tr>
+        </table>
+        <div id="result"></div>
+    </form>
+    <script>
+        function Add(pheptinh){
+            var numA = document.getElementById("numA").value
+            var numB = document.getElementById("numB").value
+            switch(pheptinh){
+                case '+':
+                ketqua = Number(numA) + Number(numB);
+                break;
+                case '-':
+                ketqua = Number(numA) - Number(numB);
+                break;
+                case '*':
+                ketqua = Number(numA) * Number(numB);
+                break;
+                default:
+                ketqua = Number(numA) / Number(numB);
+                
+            }
+            document.getElementById("result").innerHTML = ketqua
+        }
+        // function Add(){
+        //     var numA = document.getElementById("numA").value;
+        //     var numB = document.getElementById("numB").value;
+        //     var cong = Number(numA) + Number(numB)
+        //     document.getElementById("result").innerHTML = cong;
+        // }
+        // function Sub(){
+        //     var numA = document.getElementById("numA").value;
+        //     var numB = document.getElementById("numB").value;
+        //     var tru = Number(numA) - Number(numB)
+        //     document.getElementById("result").innerHTML = tru;
+        // }
+        // function Mutil(){
+        //     var numA = document.getElementById("numA").value;
+        //     var numB = document.getElementById("numB").value;
+        //     var nhan = Number(numA) * Number(numB)
+        //     document.getElementById("result").innerHTML = nhan;
+        // }
+        // function Divi(){
+        //     var numA = document.getElementById("numA").value;
+        //     var numB = document.getElementById("numB").value;
+        //     var chia = Number(numA) / Number(numB)
+        //     document.getElementById("result").innerHTML = chia;
+        // }
+    </script>
+</body>
+</html>

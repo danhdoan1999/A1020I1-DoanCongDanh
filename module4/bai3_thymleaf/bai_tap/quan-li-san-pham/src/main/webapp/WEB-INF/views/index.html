@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Products List</h3>
+<a th:href="@{/product/create}">Add New Product</a>
+<div th:if="${messAdd}">
+    <h2 style="color: green"><span th:text="${messAdd}"></span></h2>
+</div>
+<div th:if="${messDelete}">
+    <h2 style="color: red"><span th:text="${messDelete}"></span></h2>
+</div>
+<div th:if="${messEdit}">
+    <h2 style="color: goldenrod"><span th:text="${messEdit}"></span></h2>
+</div>
+<table border="1">
+    <thead>
+    <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Manufacture</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>Views</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product,rowStat:${listProduct}">
+        <td th:text="${rowStat.index + 1}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.manufacture}"></td>
+        <td><a th:href="@{/product/{id}/edit(id=${product.id})}">Edit</a></td>
+        <td><a th:href="@{/product/{id}/delete(id=${product.id})}">Delete</a></td>
+        <td><a th:href="@{/product/{id}/views(id=${product.id})}">Views</a></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

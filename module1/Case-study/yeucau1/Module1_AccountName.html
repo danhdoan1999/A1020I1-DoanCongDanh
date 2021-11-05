@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" style="width:400px; height:500px; background-color: pink; text-align: center;">
+        <h2>Infomation Customer</h2>
+        <ul style="list-style-type:none">
+            <li>
+                <label for="userName"> Your full name :
+                    <input type="text" name="userName" id="userName" placeholder="Your Full Name" required>
+                </label>
+            </li><br>
+            <li>
+                <label for="id"> Your Identity card: 
+                    <input type="text" name="id" id="id" placeholder="Your ID" required>
+                </label>
+            </li><br>
+            <li>
+                <label for="dateBorn"> Day of birth : 
+                    <input type="date" name="dateBorn" id="dateBorn" placeholder="Your Birthday" required>
+                </label>
+            </li><br>
+            <li>
+                <label for="userEmail"> Email :
+                    <input type="email" name="userEmail" id="userEmail" placeholder="Your Email" required>
+                </label>
+            </li><br>
+            <li>
+                <label for="customerCard">  Type of card :
+                    <select name="customerCard" id="customerCard">
+                        <option value="Diamond">Diamond</option>
+                        <option value="Platinum">Platinum</option>
+                        <option value="Gold">Gold</option>
+                        <option value="Silver">Silver</option>
+                        <option value="Member">Member</option>
+                    </select>
+                </label>
+            </li><br>
+            <li>
+                <label for="discount"> Discount :
+                    <input type="text" name="discount" id="discount" placeholder="Your Discount">
+                </label>
+            </li><br>
+            <li>
+                <label for="rentDays"> Day rent : 
+                    <input type="number" name="rentDays" id="rentDays" placeholder="Number of day you rent">
+                </label>
+            </li><br>
+            <li>
+                <label for="typeService">  Type of service :
+                    <select name="typeService" id="typeService">
+                        <option value="Villa">Villa</option>
+                        <option value="House">House</option>
+                        <option value="Room">Room</option>
+                    </select>
+                </label>
+            </li><br>
+            <li>
+                <label for="amount"> Amount : 
+                    <input type="number" name="amount" id="amount" placeholder="Amount">
+                </label>
+            </li><br>
+            <li>
+                <label for="typeRoom"> Type of Room : 
+                    <select name="typeRoom" id="typeRoom"> 
+                        <option value="Vip">Vip</option>
+                        <option value="Business">Business</option>
+                        <option value="Normal">Normal</option>
+                    </select>
+                </label>
+            </li>
+        </ul>
+        <input type="button" name="btn" id="btn" value="GO" onclick="getInfo()">
+    </form>
+    <div id="showList"></div>
+<script>
+    // let arr = [
+    //     {
+    //         userName : "Doan Cong Danh",
+    //         id : "123456798",
+    //         dateBorn : "12/2/1999",
+    //         userEmail : "danhdoan19999@gmail.com",
+    //         customerCard : "Member",
+    //         discount : "4",
+    //         rentDays : 4,
+    //         typeService : "House",
+    //         mount : 3 ,
+    //         typeRoom : "Room"
+    //     },
+    //     {
+    //         userName : "Nguyen Trong Hieu",
+    //         id : "264896256",
+    //         dateBorn : "3/3/1999",
+    //         userEmail : "hieunguyen123@gmail.com",
+    //         customerCard : "Member",
+    //         discount : "4",
+    //         rentDays : 3,
+    //         typeService : "House",
+    //         mount : 2 ,
+    //         typeRoom : "Vip"
+    //     }
+    // ]
+    // function showUser() {
+    //     var row = '    <table border="1">\n' +
+    //         '        <tr>\n' +
+    //         '            <th>Stt</th>\n' +
+    //         '            <th>Name</th>\n' +
+    //         '            <th>id</th>\n' +
+    //         '            <th>BirthDay</th>\n' +
+    //         '            <th>Email</th>\n' +
+    //         '            <th>Card</th>\n' +
+    //         '            <th>Discount</th>\n' +
+    //         '            <th>Day Rent</th>\n' +
+    //         '            <th>Services</th>\n' +
+    //         '            <th>Amount</th>\n' +
+    //         '            <th>Room</th>\n' +
+    //         '            <th>Total</th>\n' +
+    //         '        </tr>\n'
+    //     for(let i = 0 ; i < arr.length;i++){
+    //         row += '        <tr>\n' +
+    //             '            <td>'+(i+1)+'</td>\n' +
+    //             '            <td>'+arr[i].userName+'</td>\n' +
+    //             '            <td>'+arr[i].id+'</td>\n' +
+    //             '            <td>'+arr[i].dateBorn+'</td>\n' +
+    //             '            <td>'+arr[i].userEmail+'</td>\n' +
+    //             '            <td>'+arr[i].customerCard+'</td>\n' +
+    //             '            <td>'+arr[i].discount+'</td>\n' +
+    //             '            <td>'+arr[i].rentDays+'</td>\n' +
+    //             '            <td>'+arr[i].typeService+'</td>\n' +
+    //             '            <td>'+arr[i].mount+'</td>\n' +
+    //             '            <td>'+arr[i].typeRoom+'</td>\n' +
+    //             '            <td></td>\n' +
+    //             '        </tr>'
+    //     }
+    //         row += '</table>'
+    //     document.getElementById("showList").innerHTML = row
+    // }
+    function getInfo() {
+        var i = 1;
+        var userName = document.getElementById("userName").value;
+        var id = document.getElementById("id").value;
+        var dateBorn = document.getElementById("dateBorn").value;
+        var userEmail = document.getElementById("userEmail").value;
+        var customerCard = document.getElementById("customerCard").value;
+        var discount = document.getElementById("discount").value;
+        var rentDays = document.getElementById("rentDays").value;
+        var typeService = document.getElementById("typeService").value;
+        var amount = document.getElementById("amount").value;
+        var typeRoom = document.getElementById("typeRoom").value;
+        var payment;
+        switch (typeService) {
+            case "Villa":
+                payment = 500*Number(rentDays)*(1-(Number(discount)/100));
+                
+                break;
+            case "House":
+                payment = 300*Number(rentDays)*(1-(Number(discount)/100));
+                
+                break;
+            case "Room":
+                payment = 100*Number(rentDays)*(1-(Number(discount)/100));
+                
+                break;
+        }
+        var row = '    <table border="1">\n' +
+                '        <tr>\n' +
+                '            <th>Stt</th>\n' +
+                '            <th>Name</th>\n' +
+                '            <th>id</th>\n' +
+                '            <th>BirthDay</th>\n' +
+                '            <th>Email</th>\n' +
+                '            <th>Card</th>\n' +
+                '            <th>Discount</th>\n' +
+                '            <th>Day Rent</th>\n' +
+                '            <th>Services</th>\n' +
+                '            <th>Amount</th>\n' +
+                '            <th>Room</th>\n' +
+                '            <th>Total</th>\n' +
+                '        </tr>\n'
+            row += '        <tr>\n' +
+                '            <td>'+(i++)+'</td>\n' +
+                '            <td>'+userName+'</td>\n' +
+                '            <td>'+id+'</td>\n' +
+                '            <td>'+dateBorn+'</td>\n' +
+                '            <td>'+userEmail+'</td>\n' +
+                '            <td>'+customerCard+'</td>\n' +
+                '            <td>'+discount+'</td>\n' +
+                '            <td>'+rentDays+'</td>\n' +
+                '            <td>'+typeService+'</td>\n' +
+                '            <td>'+amount+'</td>\n' +
+                '            <td>'+typeRoom+'</td>\n' +
+                '            <td>'+payment+'$</td>\n' +
+                '        </tr>' +
+                '</table>'
+            document.getElementById("showList").innerHTML = row
+    }
+</script>
+</body>
+</html>

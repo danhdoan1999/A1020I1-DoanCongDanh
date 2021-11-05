@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lí sản phẩm</title>
+</head>
+<body>
+    <input type="text" name="" id="nhap" placeholder="nhập tên sản phẩm">
+    <input type="button" name="" id="them" value="ADD" onclick="themSP()"><br>
+    <p>Số lượng sản phẩm : <strong id="soluong"></strong></p><br>
+    <div id="hienthi"></div>  
+    <script>
+        var listSP = ["iphone","samsung","nokia"];
+        function show(){    
+            var row =  "<table border='1'>"
+                row += "<tr><th>stt</th>"
+                row += "<th>Tên sản phẩm</th>"
+                row += "<th>sửa</th>"
+                row += "<th>xóa</th></tr>"
+            for(let i = 0 ; i < listSP.length;i++){
+                row += "<tr><td>"+ (i+1) +"</td>"
+                row += "<td>"+listSP[i]+"</td>"
+                row += "<td><input type='button' name='' id='sua' value='edit' onclick='editSP("+i+")'></td>"
+                row += "<td><input type='button' name='' id='xoa' value='delete' onclick='deleteSP("+i+")'></td>"
+            }
+                row += "</table>"
+            document.getElementById("hienthi").innerHTML = row
+            document.getElementById("soluong").innerHTML = listSP.length
+        }
+        function themSP(){
+            var sanpham = document.getElementById("nhap").value;
+            if(sanpham !== "" && sanpham !== null){
+                listSP.push(sanpham);
+                document.getElementById("nhap").value = ""
+                show();
+            }
+        }
+        function deleteSP(id){
+            let submitDelete = confirm("ban co muon xoa")
+            if(submitDelete){
+                listSP.splice(id,1)
+            }
+            show()
+        }
+        function editSP(id){
+            let changeSP = prompt("nhap lai ten san pham")
+            if(changeSP){
+                listSP.splice(id,1,changeSP)
+            }
+            show()
+        }
+        show();
+    </script>
+</body>
+</html>

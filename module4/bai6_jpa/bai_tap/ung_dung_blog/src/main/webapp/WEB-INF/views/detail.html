@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1><a href="/">Back to list blog</a></h1>
+<fieldset>
+    <legend><h2>All about <span th:text="${blog.title}"></span></h2></legend>
+    <table>
+        <tr>
+            <td>Author :</td>
+            <td><h3 th:text="${blog.author}"></h3></td>
+        </tr>
+        <tr> <textarea rows="10" cols="70" th:text="${blog.content}"></textarea></tr>
+    </table>
+</fieldset>
+</body>
+</html>

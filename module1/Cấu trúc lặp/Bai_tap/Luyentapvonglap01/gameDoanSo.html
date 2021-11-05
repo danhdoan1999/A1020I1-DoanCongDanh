@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" name="" id="choi" value="PLAY" onclick="play()">
+    <input type="button" name="" id="again" value="PLAY AGAIN" onclick="location.reload()" style="display: none;">
+    <script>
+        function play(){
+            var a = parseInt(prompt("Ban muon doan trong khoang tu "))
+            var b = parseInt(prompt("Ban muon doan trong khoang den "))
+            var c = parseInt(prompt("Nhap vao so muon doan "))
+            var num = Math.floor(Math.random()*(b-(a+1)))+ a
+            for(var i = 0 ; i < 3 ; i++){
+                if(c > num){
+                alert("lon hon 1 chut roi")
+                c = parseInt(prompt("nhap lai so muon doan"))
+            } else if (c < num) {
+                alert("nho hon 1 chut roi")
+                c = parseInt(prompt("nhap lai so muon doan"))
+            } else {
+                alert("chuc mung ban")
+                break;
+            }
+            }
+            choi.style.display = "none"
+            again.style.display = "block"
+        }
+    </script>
+</body>
+</html>

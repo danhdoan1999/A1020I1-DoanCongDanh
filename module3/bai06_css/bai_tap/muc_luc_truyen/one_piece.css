@@ -1,0 +1,39 @@
+.body-onepiece{
+    display: flex;
+    height: 100vh;
+    background: url("hinh_anh/luffy.jpg");
+    background-size: cover ;
+}
+strong{
+    color: #ff2a14;
+}
+.big-title{
+    padding: 10px;
+    background-color: #ffad03;
+    text-align: center;
+}
+.title-chapter{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.body-chapter{
+    height: 500px;
+    width: 500px;
+    background: transparent;
+    text-align: left;
+    color: white;
+}
+h5{
+    font-size: 30px;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    color: #ffed4b;
+}

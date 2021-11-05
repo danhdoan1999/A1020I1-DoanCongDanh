@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Customer{
+            constructor(nameCustomer,customerID,birthDay,emailCustomer,typeCard,discount,rentsDay,typeService,typeRoom,address){
+                 this.nameCustomer;
+                 this.customerID;
+                 this.birthDay;
+                 this.emailCustomer;
+                 this.typeCard;
+                 this.discount;
+                 this.amount; 
+                 this.rentsDay;
+                 this.typeService;
+                 this.typeRoom;
+                 this.address;
+            }
+            setName(nameCustomer){
+                this.nameCustomer = nameCustomer;
+            }
+            getName(){
+                return this.nameCustomer
+            }
+            setID(customerID){
+                this.customerID = customerID;
+            }
+            getID(){
+                return this.customerID
+            }
+            setBirthDay(birthDay){
+                this.birthDay = birthDay;
+            }
+            getBirthDay(){
+                return this.birthDay;
+            }
+            setEmail(emailCustomer){
+                this.emailCustomer = emailCustomer;
+            }
+            getEmail(){
+                return this.emailCustomer;
+            }
+            setCard(typeCard){
+                this.typeCard = typeCard;
+            }
+            getCard(){
+                return this.typeCard;
+            }
+            setDiscount(discount){
+                this.discount = discount;
+            }
+            getDiscount(){
+                return this.discount;
+            }
+            setAmount(amount){
+                this.amount = amount;
+            }
+            getAmount(){
+                return this.amount;
+            }
+            setRents(rentsDay){
+                this.rentsDay = rentsDay;
+            }
+            getRents(){
+                return this.rentsDay;
+            }
+            setService(typeService){
+                this.typeService = typeService;
+            }
+            getService(){
+                return this.typeService
+            }
+            setRoom(typeRoom){
+                this.typeRoom = typeRoom;
+            }
+            getRoom(){
+                return this.typeRoom
+            }
+            setAddress(address){
+                this.address = address;
+            }
+            getAddress(){
+                return this.address;
+            }
+            totalPays(){
+                let money = 0;
+                if(this.getService==="Villa"){
+                    money = 500;
+                }else if(this.getService==="House"){
+                    money = 300;
+                }else if(this.getService==="Room"){
+                    money = 200;
+                }
+                return this.getRents*money*(1-this.getDiscount/100);
+            }
+        }
+        let listCustomer=[];
+        function displayMainMenu(){
+            let mainMenu = parseInt(prompt("1.Add New Customer"+"\n" +"2.Display Information Customer"+"\n"+"3.Display total pay Customer"+"\n"+"4.Edit Information Customer"+"\n"+"5.Delete Customer"+"\n"+"6.Exit"))
+            switch(mainMenu){
+                case 1:
+                    addNewCustomer();
+                    break;
+                case 2:
+                    break;
+                default:
+                    alert("Failed")        
+            }
+        }
+        function addNewCustomer(){
+            let cus = new Customer();
+            let nameCustomer = prompt("Nhập tên khách hàng");
+            let customerID = prompt("Nhập CNND khách hàng");
+            let birthDay = prompt("Nhập ngày sinh khách hàng");
+            let emailCustomer = prompt("Nhập email khách hàng");
+            let typeCard = prompt("Loại thẻ thành viên");
+            let discount = parseInt(prompt("phần trăm giảm giá"));
+            let amount = prompt("số lượng");
+            let rentsDay = parseInt(prompt("số ngày thuê"));
+            let typeService = prompt(" Nhập loại dịch vụ");
+            let typeRoom = prompt("Nhập loại phòng");
+            let address = prompt("Nhap dia chi");
+            cus.setName(nameCustomer);
+            cus.setID(customerID);
+            cus.setBirthDay(birthDay);
+            cus.setEmail(emailCustomer);
+            cus.setCard(typeCard);
+            cus.setDiscount(discount);
+            cus.setAmount(amount);
+            cus.setRents(rentsDay);
+            cus.setService(typeService);
+            cus.setRoom(typeRoom);
+            cus.setAddress(address);
+            listCustomer.push(cus);
+            alert("Ban da them thanh cong ")
+            displayMainMenu();
+        }
+        displayMainMenu();
+    </script>
+</body>
+</html>

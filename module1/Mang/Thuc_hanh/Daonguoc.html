@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [-11,12,56,8,9,5]
+        var pt1 = 0;
+        var ptcc = arr.length - 1;
+        while(pt1<ptcc){
+            let b = arr[pt1];
+                arr[pt1] = arr[ptcc];
+                arr[ptcc] = b;
+                pt1++;
+                ptcc--;
+        }
+        document.write(arr);
+    </script>
+</body>
+</html>

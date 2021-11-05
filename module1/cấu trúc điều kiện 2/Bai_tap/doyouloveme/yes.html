@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <h2>Do you <strong style="color: red;">LOVE ME</strong> ?</h2>
+        <input type="button" name="yes" id="yes" value="yes" onclick="aswYes()">
+        <input type="button" name="no" id="no" value="no" onmouseover="aswNo()" style="position: absolute; margin-left: 10px;">
+    </form>
+    <script>
+        function aswYes(){
+            alert("I love you , too")
+        }
+        function aswNo(){
+            var y = Math.round(Math.random()*window.innerHeight)
+            var x = Math.round(Math.random()*window.innerWidth)
+            document.getElementById("no").style.top = x + "px"
+            document.getElementById("no").style.left = y + "px"
+        }
+    </script>
+</body>
+</html>

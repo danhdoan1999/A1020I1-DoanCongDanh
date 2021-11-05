@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+        <div class="card">
+            <h1>Login</h1>
+            <form method="post" th:action="@{/j_spring_security_check}">
+                <div class="txt_field">
+                    <input name="username" id="user" type="text" required>
+                    <span></span>
+                    <label>Username</label>
+                </div>
+                <div class="txt_field">
+                    <input name="password" id="pass" type="password" required>
+                    <span></span>
+                    <label>Password</label>
+                </div>
+                <div class="check">
+                    <input name="remember-me" id="check" type="checkbox" checked>
+                    Remember me
+                </div>
+                <div class="button-login">
+                    <input  type="submit" value="Login">
+                </div>
+            </form>
+        </div>
+
+
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

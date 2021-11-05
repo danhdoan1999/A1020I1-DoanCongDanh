@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<header th:replace="/layout :: header"></header>
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div style="padding-top: 3rem" class="col-lg-2">
+        <div class="row">
+            <a class="btn btn-warning" href="/contract/create-form-contract">Create new contract</a>
+        </div>
+        <div style="padding-top:2rem " class="row">
+            <a class="btn btn-warning" href="/contract/create-detail">Create new detail</a>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <h5 class="text-success" th:if="${message != null}">
+            You have added contract <span class="text-danger" th:text="${message}"></span> to list successfully !!!
+        </h5>
+        <h5 class="text-success" th:if="${addSuccess != null}">
+            You have added detail service <span class="text-danger" th:text="${addSuccess}"></span> successfully !!!
+        </h5>
+        <table class="table table-bordered table-striped ">
+            <tr>
+                <th>Id</th>
+                <th>Start Day</th>
+                <th>End Day</th>
+                <th>Deposit</th>
+                <th>ToTal Money</th>
+                <th>Customer</th>
+                <th>Service</th>
+            </tr>
+            <tr th:each="contract :${contractList}">
+                <td th:text="${contract.contractId}"></td>
+                <td th:text="${contract.contractStartDate}"></td>
+                <td th:text="${contract.contractEndDate}"></td>
+                <td th:text="${contract.contractDeposit}"></td>
+                <td th:text="${contract.contractTotalMoney}"></td>
+                <td th:text="${contract.customer.name}"></td>
+                <td th:text="${contract.service.serviceName}"></td>
+            </tr>
+        </table>
+        <div>
+            <a th:href="@{'/contract'(page=${contractList.number - 1})}" th:if="${contractList.hasPrevious()}">Previous</a>
+            <span th:text="${contractList.number + 1}"></span>/<span th:text="${contractList.totalPages}"></span>
+            <a th:href="@{'/contract'(page=${contractList.number + 1})}" th:if="${contractList.hasNext()}">Next</a>
+        </div>
+
+
+    </div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

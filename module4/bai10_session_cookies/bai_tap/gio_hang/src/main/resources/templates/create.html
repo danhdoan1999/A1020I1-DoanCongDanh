@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/css/bootstrap.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<h3>Create Product</h3>
+<a href="/list">Back to list</a>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/create-product}" method="post" th:object="${product}">
+<table class="table">
+    <tr>
+        <td>Product Code</td>
+        <td><input type="text" th:field="*{codeProduct}"></td>
+    </tr>
+    <tr>
+        <td>Product Name</td>
+        <td><input type="text" th:field="*{nameProduct}"></td>
+    </tr>
+    <tr>
+        <td>Old Price</td>
+        <td><input type="text" th:field="*{oldPrice}"></td>
+    </tr>
+    <tr>
+        <td>New Price</td>
+        <td><input type="text" th:field="*{newPrice}"></td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td><input type="text" th:field="*{description}"></td>
+    </tr>
+    <tr>
+        <td>Image Link</td>
+        <td><input type="text" th:field="*{img}"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input class="btn btn-dark" type="submit" value="Create"></td>
+    </tr>
+</table>
+</form>
+</body>
+</html>

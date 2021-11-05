@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<header th:replace="/layout :: header"></header>
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div style="padding-top: 3rem" class="col-lg-2">
+        <a class="btn btn-success" href="/contract">Back To list Contract</a>
+    </div>
+    <div class="col-lg-9">
+        <h3 class="text-success" th:if="${message != null}">
+            <span th:text="${message}"></span>
+        </h3>
+        <h1>Add New Contract Detail</h1>
+        <form method="post" th:action="@{/contract-detail/save}" th:object="${contractDetail}">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="idContract">Customer</label>
+                    <select id="idContract" class="form-control" th:field="*{contract}">
+                        <option th:each="cont : ${contract}" th:value="${cont.contractId}" th:text="${cont.customer.name}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="attach">Attach Service</label>
+                    <select id="attach" class="form-control" th:field="*{attachService}">
+                        <option th:each="ats : ${attachService}" th:value="${ats.attachServiceId}" th:text="${ats.attachServiceName}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" class="form-control" id="quantity"  placeholder="Input quantity" th:field="*{quantity}">
+                    <p class="text-danger" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <button type="submit" class="btn btn-success">Add Contract Detail</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="amount">Amount :</label>
+        <input type="text" id="amount" name="amount">
+
+        <label for="currency">Form Curency</label>
+        <select name="currency" id="currency">
+            <option value="vnd">Việt Nam</option>
+        </select>
+
+        <label for="ToCurrency">To Curency</label>
+        <select name="ToCurrency" id="ToCurrency">
+            <option  value="dola">USD</option>
+            <option  value="bat">Thái lan</option>
+        </select>
+        <input type="button" onclick="result()" value="ket qua"></input>
+        <h2 id="ketqua"></h2>
+    </form>
+    <script> 
+        // hàm xử lí khi select thay đổi giá trị được chọn 
+        // obj là tham số truyền vào và cũng chính là thẻ select
+        function result(){
+            var amount = document.getElementById("amount").value;
+            var re = amount*0.00014
+            document.getElementById("ketqua").innerHTML = re 
+        }
+    </script>
+</body>
+</html>
