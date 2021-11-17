@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<header th:replace="/layout :: header"></header>
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div style="padding-top: 3rem" class="col-lg-2">
+        <a class="btn btn-success" href="/">Back To list question</a>
+    </div>
+    <div class="col-lg-9">
+        <h3 class="text-success" th:if="${message != null}">
+            <span th:text="${message}"></span>
+        </h3>
+        <h1>Add New question</h1>
+        <form method="post" th:action="@{/question/create}" th:object="${question}">
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" th:field="*{tittle}"  placeholder="Input title">
+                    <p class="text-danger" th:if="${#fields.hasErrors('tittle')}" th:errors="*{tittle}"></p>
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="question">Question Information</label>
+                    <textarea type="text" cols="3" rows="4" class="form-control" id="question" th:field="*{question}"></textarea>
+                    <p class="text-danger" th:if="${#fields.hasErrors('question')}" th:errors="*{question}"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="typeQuestion">Type Question</label>
+                    <select id="typeQuestion" class="form-control" th:field="*{questionType}">
+                        <option th:each="type : ${questionType}" th:value="${type.idQuestionType}" th:text="${type.nameQuestionType}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="dateCreate">Day Create</label>
+                    <input type="date" class="form-control" id="dateCreate"  placeholder="Input day create" th:field="*{dateCreate}">
+                    <p class="text-danger" th:if="${#fields.hasErrors('dateCreate')}" th:errors="*{dateCreate}"></p>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="status">Status</label>
+                    <select id="status" class="form-control" th:field="*{statusQuestion}">
+                        <option th:value="1" >Chờ phản hồi</option>
+                        <option th:value="2" >Đã phản hồi</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <button type="submit" class="btn btn-success">Create question</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

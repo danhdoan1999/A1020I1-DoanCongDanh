@@ -1,7 +1,8 @@
 package com.example.service;
 
-import com.example.model.User;
+import com.example.model.AppUser;
 
 public interface UserService {
-    Iterable<User> findAll();
+    Iterable<AppUser> findAll();
+    AppUser findByUsername(String username);
 }

@@ -10,7 +10,7 @@
 <header th:fragment="header">
     <div class="container-fluid">
         <div class="col-lg-12">
-            <div class="row">
+            <div class="row" style="display:flex;align-items: center">
                 <div class="col-lg-2">
                     <div class="row">
                         <div class="col-lg-12">
@@ -18,10 +18,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7"></div>
+                <div class="col-lg-6"></div>
                 <div class="col-lg-3">
-                    <h2>Login</h2>
+                    <div class="row">
+                        <div class="col-lg-1">
+                            <div style="padding-left: 26rem" sec:authorize="isAnonymous()">
+                                <a class="btn btn-warning" th:href="@{/login}">Login</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-11">
+                                <div style="display: flex;align-items: center;justify-content: space-between" sec:authorize="isAuthenticated()">
+                                    <div>
+                                        <span style="font-size: 3.4rem">Welcome </span> <span><strong class="h3 text-success" th:text="${#request.userPrincipal.name}"></strong></span>
+                                    </div>
+                                    <a class="btn btn-warning" th:href="@{/logout}">Logout</a>
+                                </div>
+                        </div>
+                    </div>
                 </div>
+                <div class="col-lg-1"></div>
             </div>
         </div>
     </div>

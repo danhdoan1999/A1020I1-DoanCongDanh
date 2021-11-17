@@ -42,9 +42,11 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "divisionId", referencedColumnName = "divisionId", nullable = false)
     private Division division;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "username",referencedColumnName = "username")
-    private User user;
+    private AppUser appUser;
+
     @OneToMany(mappedBy = "employee",cascade = CascadeType.ALL)
     private Set<Contract> contracts;
 
@@ -65,7 +67,7 @@ public class Employee {
         this.division = division;
     }
 
-    public Employee(String employeeId, String name, String birthday, String idCard, Double salary, String phone, String email, String address, Position position, EducationDegree educationDegree, Division division, User user) {
+    public Employee(String employeeId, @NotBlank String name, @NotEmpty String birthday, @NotBlank @Pattern(regexp = "^[0-9]{9}$", message = "Số CMND phải đúng định dạng XXXXXXXXX .") String idCard, @Positive Double salary, @NotBlank @Pattern(regexp = "^((091)|(090))[0-9]{7}$", message = "Số điện thoại phải đúng định dạng 090xxxxxxx hoặc 091xxxxxxx") String phone, @NotBlank @Email String email, @NotBlank String address, Position position, EducationDegree educationDegree, Division division, AppUser appUser) {
         this.employeeId = employeeId;
         this.name = name;
         this.birthday = birthday;
@@ -77,10 +79,10 @@ public class Employee {
         this.position = position;
         this.educationDegree = educationDegree;
         this.division = division;
-        this.user = user;
+        this.appUser = appUser;
     }
 
-    public Employee(String employeeId, String name, String birthday, String idCard, Double salary, String phone, String email, String address, Position position, EducationDegree educationDegree, Division division, User user, Set<Contract> contracts) {
+    public Employee(String employeeId, @NotBlank String name, @NotEmpty String birthday, @NotBlank @Pattern(regexp = "^[0-9]{9}$", message = "Số CMND phải đúng định dạng XXXXXXXXX .") String idCard, @Positive Double salary, @NotBlank @Pattern(regexp = "^((091)|(090))[0-9]{7}$", message = "Số điện thoại phải đúng định dạng 090xxxxxxx hoặc 091xxxxxxx") String phone, @NotBlank @Email String email, @NotBlank String address, Position position, EducationDegree educationDegree, Division division, AppUser appUser, Set<Contract> contracts) {
         this.employeeId = employeeId;
         this.name = name;
         this.birthday = birthday;
@@ -92,7 +94,7 @@ public class Employee {
         this.position = position;
         this.educationDegree = educationDegree;
         this.division = division;
-        this.user = user;
+        this.appUser = appUser;
         this.contracts = contracts;
     }
 
@@ -184,12 +186,12 @@ public class Employee {
         this.division = division;
     }
 
-    public User getUser() {
-        return user;
+    public AppUser getAppUser() {
+        return appUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 
     public Set<Contract> getContracts() {

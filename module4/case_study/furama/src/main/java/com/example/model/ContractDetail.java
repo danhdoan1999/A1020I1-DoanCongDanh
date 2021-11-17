@@ -8,13 +8,16 @@ public class ContractDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer contractDetailId;
+
     @ManyToOne
     @JoinColumn(name = "contractId" , referencedColumnName = "contractId",nullable = false)
     private Contract contract;
+
     @ManyToOne
     @JoinColumn(name = "attachServiceId",referencedColumnName = "attachServiceId",nullable = false)
     private AttachService attachService;
     @Positive
+
     private Integer quantity;
 
     public ContractDetail() {
