@@ -1,0 +1,8 @@
+<h1>Color pick</h1>
+<label>
+  Chọn màu :
+  <input type="color" (change)="onChange($any($event.target).value)">
+</label>
+
+<p>Output</p>
+<div style="width: 100px;height: 100px" [style.background]="background"></div>

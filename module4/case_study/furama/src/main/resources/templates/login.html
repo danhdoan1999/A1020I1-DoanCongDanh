@@ -8,6 +8,9 @@
 <body>
         <div class="card">
             <h1>Login</h1>
+            <div style="text-align: center" th:if="${#request.getParameter('error') == 'true'}">
+                <span style="color: #ff006f">Username or password wrong !</span>
+            </div>
             <form method="post" th:action="@{/j_spring_security_check}">
                 <div class="txt_field">
                     <input name="username" id="user" type="text" required>

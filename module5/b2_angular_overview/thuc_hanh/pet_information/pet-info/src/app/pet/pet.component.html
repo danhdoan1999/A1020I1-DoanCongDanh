@@ -1,0 +1,12 @@
+<h1>Pet profile</h1>
+<label>Name pet:
+<input type="text" (change)="updateName($any($event.target).value)">
+</label>
+<label class="text-warning">Đây là bootstrap</label>
+<label>Image pet:
+  <input type="url" (change)="updateImg($any($event.target).value)">
+</label>
+<br>
+<h3>Pet name : {{petName}}</h3>
+<img [src]="petImg">
+
