@@ -1,7 +1,7 @@
 <h1>Color pick</h1>
 <label>
   Chọn màu :
-  <input type="color" (change)="onChange($any($event.target).value)">
+  <input type="color" [(ngModel)]="background">
 </label>
 
 <p>Output</p>

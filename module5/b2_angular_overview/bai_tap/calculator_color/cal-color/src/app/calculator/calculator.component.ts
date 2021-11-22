@@ -25,6 +25,7 @@ export class CalculatorComponent implements OnInit {
   }
 
   CalculatorOperator(){
+    this.error = '';
     switch (this.operator) {
       case '+':
         this.result = this.firstNum + this.secondNum;
@@ -39,16 +40,12 @@ export class CalculatorComponent implements OnInit {
         if(this.secondNum != 0){
           this.result = this.firstNum / this.secondNum;
         }else{
-          this.clearValue();
           this.error = 'lỗi chia cho 0';
         }
         break;
     }
   }
 
-  clearValue(){
-    this.result = 0;
-  }
   constructor() { }
 
   ngOnInit(): void {
