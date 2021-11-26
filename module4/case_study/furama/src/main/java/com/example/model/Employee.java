@@ -50,6 +50,8 @@ public class Employee {
     @OneToMany(mappedBy = "employee",cascade = CascadeType.ALL)
     private Set<Contract> contracts;
 
+    private UserRoles roles;
+
     public Employee() {
     }
 
@@ -104,6 +106,10 @@ public class Employee {
 
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
+    }
+
+    public void setRole(UserRoles roles){
+        this.roles = roles;
     }
 
     public String getName() {

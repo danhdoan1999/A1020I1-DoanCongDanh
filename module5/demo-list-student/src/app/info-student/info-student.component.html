@@ -1,0 +1,10 @@
+<div class="card row" style="width: 18rem">
+<img class="card-img-top bg-info" [src]="studentDetailInfo.image">
+  <div class="card-body">
+    <p class="card-text">Id: {{studentDetailInfo.id}}</p>
+    <p class="card-text">Name: {{studentDetailInfo.name}}</p>
+    <p class="card-text">Mark: {{studentDetailInfo.mark}}</p>
+  </div>
+  <label>Chấm điểm:. </label>
+  <input type = "number" min="0" max="10" (change)="getMark($any($event.target).value)">
+</div>
