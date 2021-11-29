@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// @ts-ignore
 import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({

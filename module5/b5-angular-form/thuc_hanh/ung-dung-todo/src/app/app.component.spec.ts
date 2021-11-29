@@ -1,12 +1,8 @@
-// @ts-ignore
 import { TestBed } from '@angular/core/testing';
-// @ts-ignore
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
-// @ts-ignore
 describe('AppComponent', () => {
-  // @ts-ignore
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -18,28 +14,22 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
-  // @ts-ignore
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    // @ts-ignore
     expect(app).toBeTruthy();
   });
 
-  // @ts-ignore
-  it(`should have as title 'demo-list-student'`, () => {
+  it(`should have as title 'ung-dung-todo'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    // @ts-ignore
-    expect(app.title).toEqual('demo-list-student');
+    expect(app.title).toEqual('ung-dung-todo');
   });
 
-  // @ts-ignore
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    // @ts-ignore
-    expect(compiled.querySelector('.content span')?.textContent).toContain('demo-list-student app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('ung-dung-todo app is running!');
   });
 });
