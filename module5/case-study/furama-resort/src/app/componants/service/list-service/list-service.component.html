@@ -1,0 +1,45 @@
+<div class="row container-fluid">
+  <div class="row col-lg-12">
+    <h2>List Customer</h2>
+  </div>
+  <div class="row col-lg-12">
+    <button class="btn btn-success">Create</button>
+    <table class="table table-bordered table-striped mt-3">
+      <thead class="thead-dark">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Area</th>
+        <th>Cost</th>
+        <th>Max people</th>
+        <th>Rent type</th>
+        <th>Service type</th>
+        <th>Standard room</th>
+        <th>Description other convenience</th>
+        <th>Pool area</th>
+        <th>Floors</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let service of services">
+        <td>{{service.idService}}</td>
+        <td>{{service.name}}</td>
+        <td>{{service.area}}</td>
+        <td>{{service.cost}}</td>
+        <td>{{service.maxPeople}}</td>
+        <td>{{service.rentType}}</td>
+        <td>{{service.serviceType}}</td>
+        <td>{{service.standardRoom}}</td>
+        <td>{{service.descriptionOtherConvenience}}</td>
+        <td>{{service.poolArea}}</td>
+        <td>{{service.numOfFloors}}</td>
+        <td style="width: 10%">
+          <a class="btn btn-sm btn-warning mr-2" >Edit</a>
+          <a class="btn btn-sm btn-danger" >Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

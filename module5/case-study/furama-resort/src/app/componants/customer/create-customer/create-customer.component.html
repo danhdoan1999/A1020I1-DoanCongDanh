@@ -1,0 +1,52 @@
+<h2 class="text-center">Create customer</h2>
+<form [formGroup]="customerCreateForm" class="w-75 mx-auto mt-4" >
+  <div class="card border-dark" style="width: 100%">
+    <div class="card-body">
+      <div class="form-group">
+        <p>Name</p>
+        <input formControlName="name" type="text" class="form-control"  placeholder="Input name customer">
+        <p class="form-text text-danger" *ngIf="customerCreateForm.controls.name.errors?.required && customerCreateForm.controls.name?.touched">Please enter your name</p>
+      </div>
+      <div class="form-group">
+        <p>Birthday</p>
+        <input formControlName="birthday"  type="date" class="form-control col-lg-4">
+      </div>
+      <div class="form-group">
+        <p>Gender</p>
+        <select class="form-control col-md-4">
+          <option value="male">male</option>
+          <option value="female">female</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <p>Id card</p>
+        <input type="number" class="form-control"  placeholder="Input gender customer">
+      </div>
+      <div class="form-group">
+        <p>Phone</p>
+        <input type="text" class="form-control"  placeholder="Input phone customer">
+
+      </div>
+      <div class="form-group">
+        <p>Email</p>
+        <input type="text" class="form-control"  placeholder="Input email customer">
+      </div>
+      <div class="form-group">
+        <p>Address</p>
+        <input type="text" class="form-control"  placeholder="Input address customer">
+      </div>
+      <div class="form-group">
+        <p>Type</p>
+        <select class="form-control col-md-4">
+          <option value="diamond">diamond</option>
+          <option value="gold">gold</option>
+        </select>
+      </div>
+    </div>
+    <div class="card-footer text-muted d-flex justify-content-center">
+      <button class="btn btn-success" >Create</button>
+    </div>
+  </div>
+</form>
+
+
