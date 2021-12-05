@@ -21,7 +21,20 @@ import { CreateServiceComponent } from './componants/service/create-service/crea
 import { EditServiceComponent } from './componants/service/edit-service/edit-service.component';
 import { DeleteServiceComponent } from './componants/service/delete-service/delete-service.component';
 import { ListServiceComponent } from './componants/service/list-service/list-service.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { HomeComponent } from './componants/home/home.component';
+import { ListContractDetailComponent } from './componants/contract-details/list-contract-detail/list-contract-detail.component';
+import { EditContractComponent } from './componants/contract/edit-contract/edit-contract.component';
+import {HttpClientModule} from "@angular/common/http";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {Ng2SearchPipeModule} from "ng2-search-filter";
+import {NgxPaginationModule} from "ngx-pagination";
+import {MatSelectModule} from "@angular/material/select";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
@@ -45,11 +58,25 @@ import {ReactiveFormsModule} from "@angular/forms";
     EditServiceComponent,
     DeleteServiceComponent,
     ListServiceComponent,
+    HomeComponent,
+    ListContractDetailComponent,
+    EditContractComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

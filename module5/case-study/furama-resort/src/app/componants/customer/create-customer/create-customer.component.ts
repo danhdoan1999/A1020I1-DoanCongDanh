@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ICustomer} from "../../../models/customer";
-import {ListCustomerComponent} from "../list-customer/list-customer.component";
+import {CustomerService} from "../../../services/customer.service";
+import {Router} from "@angular/router";
 
+interface Type {
+  value:string;
+  viewValue:string;
+}
 @Component({
   selector: 'app-create-customer',
   templateUrl: './create-customer.component.html',
@@ -11,13 +15,13 @@ import {ListCustomerComponent} from "../list-customer/list-customer.component";
 export class CreateCustomerComponent implements OnInit {
 
 
-  customerCreateForm!:FormGroup
-
+  public customerCreateForm!:FormGroup;
+  public maxDate=new Date();
+  public minDate=new Date(1900,0,1);
   constructor(
     public formBuilder:FormBuilder,
-    public customerComponent:ListCustomerComponent) {
-
-  }
+    public customerService:CustomerService,
+    public router:Router) {}
 
   ngOnInit(): void {
     this.customerCreateForm = this.formBuilder.group({
@@ -35,7 +39,15 @@ export class CreateCustomerComponent implements OnInit {
   }
   addNewCustomer(){
     this.customerCreateForm.value.idCustomer = 'KH-'+ Math.floor(Math.random()*10000);
-    console.log(this.customerCreateForm.value)
-    this.customerComponent.customers.push(this.customerCreateForm.value);
+    this.customerService.addNewCustomer(this.customerCreateForm.value).subscribe(data=>{
+      this.router.navigateByUrl('customer-list').then(r=>{});
+    })
   }
+  types: Type[] = [
+    {value: 'Diamond', viewValue: 'Diamond'},
+    {value: 'Platinum', viewValue: 'Platinium'},
+    {value: 'Gold', viewValue: 'Gold'},
+    {value: 'Silver', viewValue: 'Silver'},
+    {value: 'Member', viewValue: 'Menber'},
+  ];
 }

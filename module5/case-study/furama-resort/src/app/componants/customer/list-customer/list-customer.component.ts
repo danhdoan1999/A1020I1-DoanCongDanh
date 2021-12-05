@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ICustomer} from "../../../models/customer";
-
+interface Type {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-list-customer',
@@ -9,6 +12,13 @@ import {ICustomer} from "../../../models/customer";
 })
 export class ListCustomerComponent implements OnInit {
 
+  types: Type[] = [
+    {value: 'Diamond', viewValue: 'Diamond'},
+    {value: 'Platinum', viewValue: 'Platinium'},
+    {value: 'Gold', viewValue: 'Gold'},
+    {value: 'Silver', viewValue: 'Silver'},
+    {value: 'Member', viewValue: 'Member'},
+  ];
 
     public customers:ICustomer[] = [
     {

@@ -1,52 +1,66 @@
 <h2 class="text-center">Create customer</h2>
-<form [formGroup]="customerCreateForm" class="w-75 mx-auto mt-4" >
+<form class="w-75 mx-auto mt-4" (ngSubmit)="addNewCustomer()" [formGroup]="customerCreateForm">
   <div class="card border-dark" style="width: 100%">
     <div class="card-body">
       <div class="form-group">
         <p>Name</p>
-        <input formControlName="name" type="text" class="form-control"  placeholder="Input name customer">
+        <input type="text" class="form-control" formControlName="name" placeholder="Input name customer">
         <p class="form-text text-danger" *ngIf="customerCreateForm.controls.name.errors?.required && customerCreateForm.controls.name?.touched">Please enter your name</p>
       </div>
       <div class="form-group">
         <p>Birthday</p>
-        <input formControlName="birthday"  type="date" class="form-control col-lg-4">
+        <mat-form-field>
+          <input class="form-control" matInput [matDatepicker]="myDatepicker" formControlName="birthday" placeholder="Input birthday customer" [max]="maxDate" [min]="minDate">
+          <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #myDatepicker></mat-datepicker>
+        </mat-form-field>
+        <p class="form-text text-danger" *ngIf="customerCreateForm.controls.birthday.errors?.required && customerCreateForm.controls.birthday?.touched">Please choose your birthday</p>
       </div>
       <div class="form-group">
         <p>Gender</p>
-        <select class="form-control col-md-4">
-          <option value="male">male</option>
-          <option value="female">female</option>
-        </select>
+        <input class="form-check-inline" type="radio" value="Male" formControlName="gender">Male
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <input class="form-check-inline" type="radio" value="Female" formControlName="gender">Female
+        <p class="form-text text-danger" *ngIf="customerCreateForm.controls.gender.errors?.required && customerCreateForm.controls.gender?.touched">Please enter your gender</p>
       </div>
       <div class="form-group">
         <p>Id card</p>
-        <input type="number" class="form-control"  placeholder="Input gender customer">
+        <input type="number" class="form-control" formControlName="idCard" placeholder="Input gender customer">
+        <p class="form-text text-danger" *ngIf="customerCreateForm.controls.idCard.errors?.required && customerCreateForm.controls.idCard?.touched">Please enter your id card</p>
+        <p class="form-text text-danger" *ngIf="customerCreateForm.controls.idCard.errors?.pattern && customerCreateForm.controls.idCard?.touched">Id card invalidate</p>
       </div>
       <div class="form-group">
         <p>Phone</p>
-        <input type="text" class="form-control"  placeholder="Input phone customer">
-
+        <input type="text" class="form-control" formControlName="phone" placeholder="Input phone customer">
+        <p class="form-text text-danger" *ngIf="customerCreateForm.controls.phone.errors?.required && customerCreateForm.controls.phone?.touched">Please enter your phone</p>
+        <p class="form-text text-danger" *ngIf="customerCreateForm.controls.phone.errors?.pattern && customerCreateForm.controls.phone?.touched">Phone invalidate</p>
       </div>
       <div class="form-group">
         <p>Email</p>
-        <input type="text" class="form-control"  placeholder="Input email customer">
+        <input type="text" class="form-control" formControlName="email" placeholder="Input email customer">
+        <p class="form-text text-danger" *ngIf="customerCreateForm.controls.email.errors?.required && customerCreateForm.controls.email?.touched">Please enter your email</p>
+        <p class="form-text text-danger" *ngIf="customerCreateForm.controls.email.errors?.email && customerCreateForm.controls.email?.touched">Email invalidate</p>
       </div>
       <div class="form-group">
         <p>Address</p>
-        <input type="text" class="form-control"  placeholder="Input address customer">
+        <input type="text" class="form-control" formControlName="address" placeholder="Input address customer">
+        <p class="form-text text-danger" *ngIf="customerCreateForm.controls.address.errors?.required && customerCreateForm.controls.address?.touched">Please enter your address</p>
       </div>
       <div class="form-group">
         <p>Type</p>
-        <select class="form-control col-md-4">
-          <option value="diamond">diamond</option>
-          <option value="gold">gold</option>
-        </select>
+        <mat-form-field >
+          <mat-label>Choose type customer</mat-label>
+          <mat-select formControlName="type">
+            <mat-option *ngFor="let type of types" [value]="type.value">
+              {{type.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p class="form-text text-danger" *ngIf="customerCreateForm.controls.type.errors?.required && customerCreateForm.controls.type?.touched">Please choose your type</p>
       </div>
     </div>
     <div class="card-footer text-muted d-flex justify-content-center">
-      <button class="btn btn-success" >Create</button>
+      <button class="btn btn-success" [disabled]="customerCreateForm.invalid">Create</button>
     </div>
   </div>
 </form>
-
-
