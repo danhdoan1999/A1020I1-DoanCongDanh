@@ -1,19 +1,23 @@
-import {Injectable} from "@angular/core";
+import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {ICustomer} from "../models/customer";
 
 @Injectable({
-  providedIn:'root'
+  providedIn: 'root'
 })
 export class CustomerService {
-  public API:string = 'http://localhost:4200/customers';
-  constructor(public http:HttpClient) {
+
+  constructor(private http:HttpClient) { }
+
+  customerURL = "http://localhost:3000/customer";
+  customerTypeURL = "http://localhost:3000/customerType";
+
+  getAllCustomer(){
+    return this.http.get(this.customerURL);
   }
-  getAllCustomer():Observable<ICustomer[]>{
-    return this.http.get<ICustomer[]>(this.API);
+  findById(id:any){
+    return this.http.get(this.customerURL+'/'+id);
   }
-  addNewCustomer(customer:ICustomer):Observable<ICustomer>{
-    return this.http.post<ICustomer>(this.API,customer)
+  deleteCustomer(id:any){
+    return this.http.delete(this.customerURL+'/'+id);
   }
 }

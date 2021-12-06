@@ -1,0 +1,44 @@
+{
+  "customer": [
+    {
+      "id": 1,
+      "idCustomer": "KH-0005",
+      "name": "danh",
+      "birthday": "2000-10-10",
+      "gender": "Male",
+      "idCard": "201814047",
+      "phone": "0905081300",
+      "email": "danhdoan19999@gmail.com",
+      "address": "Quang Nam",
+      "customerType": {
+        "id": 1,
+        "nameType": "diamond"
+      }
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "nameType": "diamond"
+    },
+    {
+      "id": 2,
+      "nameType": "platinum"
+    },
+    {
+      "id": 3,
+      "nameType": "gold"
+    },
+    {
+      "id": 4,
+      "nameType": "silver"
+    },
+    {
+      "id": 5,
+      "nameType": "member"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

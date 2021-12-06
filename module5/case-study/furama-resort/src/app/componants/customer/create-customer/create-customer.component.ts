@@ -39,9 +39,9 @@ export class CreateCustomerComponent implements OnInit {
   }
   addNewCustomer(){
     this.customerCreateForm.value.idCustomer = 'KH-'+ Math.floor(Math.random()*10000);
-    this.customerService.addNewCustomer(this.customerCreateForm.value).subscribe(data=>{
+    /*this.customerService.addNewCustomer(this.customerCreateForm.value).subscribe(data=>{
       this.router.navigateByUrl('customer-list').then(r=>{});
-    })
+    })*/
   }
   types: Type[] = [
     {value: 'Diamond', viewValue: 'Diamond'},

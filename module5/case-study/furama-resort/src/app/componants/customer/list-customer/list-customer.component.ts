@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ICustomer} from "../../../models/customer";
+import {CustomerService} from "../../../services/customer.service";
+import {MatDialog} from "@angular/material/dialog";
+import {DeleteCustomerComponent} from "../delete-customer/delete-customer.component";
 interface Type {
   value: string;
   viewValue: string;
@@ -20,38 +23,28 @@ export class ListCustomerComponent implements OnInit {
     {value: 'Member', viewValue: 'Member'},
   ];
 
-    public customers:ICustomer[] = [
-    {
-      id: 1,
-      idCustomer: 'KH-001',
-      name: 'danh đoàn',
-      birthday: '02/12/1999',
-      gender: 'male',
-      idCard: '201814047',
-      phone: '0905081300',
-      email: 'danhdoan19999@gmail.com',
-      address: 'Đà nẵng',
-      type: 'diamond'
-    },
-    {
-      id: 2,
-      idCustomer: 'KH-002',
-      name: 'Hiền lê',
-      birthday: '03/10/1995',
-      gender: 'male',
-      idCard: '201814000',
-      phone: '0905081333',
-      email: 'hien123@gmail.com',
-      address: 'Đà nẵng',
-      type: 'gold'
-    }
-  ];
+  customers : any;
 
-  constructor() { }
+  constructor(private customerService:CustomerService ,
+              private dialog:MatDialog) { }
 
   ngOnInit(): void {
+    this.customers = this.customerService.getAllCustomer().subscribe(data => {
+      console.log(data);
+      this.customers = data;
+    });
   }
-  getAllCustomer(customer:any){
-    this.customers = customer;
+  openDialogDelete(id: any) {
+    this.customerService.findById(id).subscribe(data=>{
+      //console.log(data);
+      const dialogRef = this.dialog.open(DeleteCustomerComponent,{
+        width:'500px',
+        height:'215px',
+        data:data
+      });
+      dialogRef.afterClosed().subscribe(()=>{
+        this.ngOnInit();
+      })
+    })
   }
 }
