@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {ICustomer} from "../models/customer";
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,18 @@ export class CustomerService {
   }
   deleteCustomer(id:any){
     return this.http.delete(this.customerURL+'/'+id);
+  }
+  getAllCustomerType(){
+    return this.http.get(this.customerTypeURL);
+  }
+  createCustomer(customer:ICustomer){
+    return this.http.post(this.customerURL,customer)
+  }
+  editCustomer(customer:ICustomer,id:number){
+    return this.http.put<ICustomer>(this.customerURL+'/'+id,customer);
+  }
+
+  findByName(search:string) {
+    return this.http.get(this.customerURL+'?name_like='+search);
   }
 }

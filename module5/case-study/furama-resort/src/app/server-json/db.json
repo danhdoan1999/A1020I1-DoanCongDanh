@@ -1,15 +1,105 @@
 {
   "customer": [
     {
-      "id": 1,
-      "idCustomer": "KH-0005",
-      "name": "danh",
-      "birthday": "2000-10-10",
+      "id": 2,
+      "idCustomer": "KH-114",
+      "name": "Tommy",
+      "birthday": "1998-11-11T17:00:00.000Z",
       "gender": "Male",
-      "idCard": "201814047",
-      "phone": "0905081300",
-      "email": "danhdoan19999@gmail.com",
-      "address": "Quang Nam",
+      "idCard": 201635968,
+      "phone": "0905365388",
+      "email": "tommy342@gmail.com",
+      "address": "New york",
+      "customerType": {
+        "id": 3,
+        "nameType": "gold"
+      }
+    },
+    {
+      "id": 3,
+      "idCustomer": "KH-445",
+      "name": "lisa",
+      "birthday": "1997-06-10T17:00:00.000Z",
+      "gender": "Female",
+      "idCard": 203623695,
+      "phone": "0905366986",
+      "email": "lissaaasa232@gmail.com",
+      "address": "Nghe an",
+      "customerType": {
+        "id": 4,
+        "nameType": "silver"
+      }
+    },
+    {
+      "id": 4,
+      "idCustomer": "KH-801",
+      "name": "jisoo",
+      "birthday": "1998-06-02T17:00:00.000Z",
+      "gender": "Female",
+      "idCard": 203659863,
+      "phone": "0905366359",
+      "email": "aloalo132@gmail.com",
+      "address": "hue",
+      "customerType": {
+        "id": 2,
+        "nameType": "platinum"
+      }
+    },
+    {
+      "id": 5,
+      "idCustomer": "KH-656",
+      "name": "Jenny",
+      "birthday": "1998-12-22T17:00:00.000Z",
+      "gender": "Female",
+      "idCard": 203695368,
+      "phone": "0905366254",
+      "email": "jent231@gmail.com",
+      "address": "America",
+      "customerType": {
+        "id": 3,
+        "nameType": "gold"
+      }
+    },
+    {
+      "id": 6,
+      "idCustomer": "KH-408",
+      "name": "rose",
+      "birthday": "1996-12-18T17:00:00.000Z",
+      "gender": "Female",
+      "idCard": 203653698,
+      "phone": "0906325698",
+      "email": "rose12@gmail.com",
+      "address": "france",
+      "customerType": {
+        "id": 2,
+        "nameType": "platinum"
+      }
+    },
+    {
+      "id": 7,
+      "idCustomer": "KH-989",
+      "name": "GD",
+      "birthday": "1997-06-10T17:00:00.000Z",
+      "gender": "Male",
+      "idCard": 203695863,
+      "phone": "0905244870",
+      "email": "dragonmima423@gmail.com",
+      "address": "italy",
+      "customerType": {
+        "id": 1,
+        "nameType": "diamond"
+      }
+    },
+    {
+      "id": 8,
+      "idCustomer": "KH-206",
+      "name": "messi",
+      "birthday": "1986-11-05T17:00:00.000Z",
+      "gender": "Female",
+      "idCard": 203632632,
+      "phone": "0905366326",
+      "email": "ronapen55@gmail.com",
+      "address": "potugal",
       "customerType": {
         "id": 1,
         "nameType": "diamond"

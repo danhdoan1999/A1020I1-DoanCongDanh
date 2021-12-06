@@ -48,15 +48,10 @@
       </div>
       <div class="form-group">
         <p>Type</p>
-        <mat-form-field >
-          <mat-label>Choose type customer</mat-label>
-          <mat-select formControlName="type">
-            <mat-option *ngFor="let type of types" [value]="type.value">
-              {{type.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <p class="form-text text-danger" *ngIf="customerCreateForm.controls.type.errors?.required && customerCreateForm.controls.type?.touched">Please choose your type</p>
+        <select formControlName="customerType">
+          <option *ngFor="let customerType of customerTypeList" [ngValue]="customerType">{{customerType.nameType}}</option>
+        </select>
+        <p class="form-text text-danger" *ngIf="customerCreateForm.controls.customerType.errors?.required && customerCreateForm.controls.customerType?.touched">Please choose your type</p>
       </div>
     </div>
     <div class="card-footer text-muted d-flex justify-content-center">

@@ -1,9 +1,14 @@
 <div class="row container-fluid">
+  <div class="col-lg-12 d-flex align-items-center" >
+    Search by name  : <input class="form-control col-md-4" placeholder="Input name search" type="text" #search><span><button class="btn btn-primary" (click)="searchCustomer(search.value)">Search</button></span>
+  </div>
+</div>
+<div class="row container-fluid">
   <div class="row col-lg-12">
     <h2>List Customer</h2>
   </div>
   <div class="row col-lg-12">
-    <a class="btn btn-success" [routerLink]="['/customer-create']">Create</a>
+    <a class="btn btn-success" [routerLink]="['/customer-create']">Create new customer</a>
     <table class="table table-bordered table-striped mt-3">
       <thead class="thead-dark">
       <tr>
@@ -16,7 +21,7 @@
         <th>Email</th>
         <th>Address</th>
         <th>Type</th>
-        <th>Action</th>
+        <th colspan="2" class="text-center">Action</th>
       </tr>
       </thead>
       <tbody>
@@ -30,8 +35,10 @@
         <td>{{customer.email}}</td>
         <td>{{customer.address}}</td>
         <td>{{customer.customerType.nameType}}</td>
-        <td style="width: 10%">
-          <a class="btn btn-sm btn-warning mr-2" >Edit</a>
+        <td>
+          <a class="btn btn-sm btn-warning" routerLink="/customer-edit/{{customer.id}}">Edit</a>
+        </td>
+        <td>
           <a class="btn btn-sm btn-danger" (click)="openDialogDelete(customer.id)">Delete</a>
         </td>
       </tr>
