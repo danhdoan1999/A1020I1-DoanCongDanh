@@ -34,4 +34,8 @@ export class CustomerService {
   findByName(search:string) {
     return this.http.get(this.customerURL+'?name_like='+search);
   }
+
+  sortByName() {
+    return this.http.get(this.customerURL+'?_sort=name');
+  }
 }

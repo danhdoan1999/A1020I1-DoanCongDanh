@@ -1,6 +1,9 @@
 <div class="row container-fluid">
-  <div class="col-lg-12 d-flex align-items-center" >
-    Search by name  : <input class="form-control col-md-4" placeholder="Input name search" type="text" #search><span><button class="btn btn-primary" (click)="searchCustomer(search.value)">Search</button></span>
+  <div class="col-lg-6 d-flex align-items-center" >
+    Search by name  : <input class="form-control col-md-4 m-1" placeholder="Input name search" type="text" #search><span><button class="btn btn-primary" (click)="searchCustomer(search.value)">Search</button></span>
+  </div>
+  <div class="col-lg-6 d-flex align-items-center">
+    Sort by name : <button class="btn btn-primary m-1" (click)="sort()">Sort</button>
   </div>
 </div>
 <div class="row container-fluid">
@@ -25,10 +28,10 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let customer of customers">
+      <tr *ngFor="let customer of customers | paginate:{itemsPerPage:4,currentPage:p}">
         <td>{{customer.idCustomer}}</td>
         <td>{{customer.name}}</td>
-        <td>{{customer.birthday}}</td>
+        <td>{{customer.birthday | date:'dd/MM/yyyy'}}</td>
         <td>{{customer.gender}}</td>
         <td>{{customer.idCard}}</td>
         <td>{{customer.phone}}</td>
@@ -44,7 +47,7 @@
       </tr>
       </tbody>
     </table>
-
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
   </div>
 </div>
 

@@ -12,6 +12,7 @@ import {DeleteCustomerComponent} from "../delete-customer/delete-customer.compon
 export class ListCustomerComponent implements OnInit {
 
   customers : any;
+  p: any;
 
   constructor(private customerService:CustomerService ,
               private dialog:MatDialog) { }
@@ -40,7 +41,14 @@ export class ListCustomerComponent implements OnInit {
     this.customerService.findByName(search).subscribe(data=>{
       //console.log(data);
       this.customers = data;
+      this.p = 1;
     })
 
+  }
+
+  sort() {
+    this.customerService.sortByName().subscribe(data=>{
+      this.customers=data;
+    })
   }
 }

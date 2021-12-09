@@ -1,0 +1,32 @@
+{
+  "movie": [
+    {
+      "id": 1,
+      "idMovie": "CI-6738",
+      "nameMovie": "Harry Potter ",
+      "dateShow": "2021-12-15T17:00:00.000Z",
+      "quantityTicket": "100"
+    },
+    {
+      "id": 2,
+      "idMovie": "CI-3396",
+      "nameMovie": "Legend of Legue",
+      "dateShow": "2021-12-09T17:00:00.000Z",
+      "quantityTicket": "52"
+    },
+    {
+      "id": 3,
+      "idMovie": "CI-9329",
+      "nameMovie": "Red Notice",
+      "dateShow": "2021-12-09T17:00:00.000Z",
+      "quantityTicket": "100"
+    },
+    {
+      "id": 4,
+      "idMovie": "CI-3820",
+      "nameMovie": "The Tomorrow War",
+      "dateShow": "2021-12-13T17:00:00.000Z",
+      "quantityTicket": "123"
+    }
+  ]
+}

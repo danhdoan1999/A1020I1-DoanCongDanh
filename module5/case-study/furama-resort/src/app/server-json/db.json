@@ -128,7 +128,91 @@
       "nameType": "member"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "employee": [
+    {
+      "id": 1,
+      "idEmployee": "NV-001",
+      "name": "Hiếu Nguyễn",
+      "birthday": "1998-11-11",
+      "idCard": "201623509",
+      "salary": "300",
+      "phone": "0905086365",
+      "email": "hieunguyen12@gmail.com",
+      "address": "Huế",
+      "position": {
+        "id": 1,
+        "namePosition": "lễ tân"
+      },
+      "educationDegree": {
+        "id": 3,
+        "nameEducation": "đại học"
+      },
+      "division": {
+        "id": 3,
+        "nameDivision": "phục vụ"
+      }
+    }
+  ],
+  "position": [
+    {
+      "id": 1,
+      "namePosition": "lễ tân"
+    },
+    {
+      "id": 2,
+      "namePosition": "phục vụ"
+    },
+    {
+      "id": 3,
+      "namePosition": "chuyên viên"
+    },
+    {
+      "id": 4,
+      "namePosition": "giám sát"
+    },
+    {
+      "id": 5,
+      "namePosition": "quản lí"
+    },
+    {
+      "id": 6,
+      "namePosition": "giám đốc"
+    }
+  ],
+  "educationDegree": [
+    {
+      "id": 1,
+      "nameEducation": "trung cấp"
+    },
+    {
+      "id": 2,
+      "nameEducation": "cao đẳng"
+    },
+    {
+      "id": 3,
+      "nameEducation": "đại học"
+    },
+    {
+      "id": 4,
+      "nameEducation": "sau đại học"
+    }
+  ],
+  "division": [
+    {
+      "id": 1,
+      "nameDivision": "Marketing"
+    },
+    {
+      "id": 2,
+      "nameDivision": "hành chính"
+    },
+    {
+      "id": 3,
+      "nameDivision": "phục vụ"
+    },
+    {
+      "id": 4,
+      "nameDivision": "quản lí"
+    }
+  ]
 }

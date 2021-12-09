@@ -1,9 +1,9 @@
 <div class="row container-fluid">
   <div class="row col-lg-12">
-    <h2>List Customer</h2>
+    <h2>List Employee</h2>
   </div>
   <div class="row col-lg-12">
-    <button class="btn btn-success">Create</button>
+    <button class="btn btn-success" routerLink="/employee-create">Create</button>
     <table class="table table-bordered table-striped mt-3">
       <thead class="thead-dark">
       <tr>
@@ -18,7 +18,7 @@
         <th>Position</th>
         <th>Education Degree</th>
         <th>Division</th>
-        <th>Action</th>
+        <th colspan="2" class="text-center">Action</th>
       </tr>
       </thead>
       <tbody>
@@ -31,12 +31,14 @@
         <td>{{employee.phone}}</td>
         <td>{{employee.email}}</td>
         <td>{{employee.address}}</td>
-        <td>{{employee.position}}</td>
-        <td>{{employee.educationDegree}}</td>
-        <td>{{employee.division}}</td>
-        <td style="width: 10%">
-          <a class="btn btn-sm btn-warning mr-2" >Edit</a>
-          <a class="btn btn-sm btn-danger" >Delete</a>
+        <td>{{employee.position.namePosition}}</td>
+        <td>{{employee.educationDegree.nameEducation}}</td>
+        <td>{{employee.division.nameDivision}}</td>
+        <td>
+          <a class="btn btn-sm btn-warning">Edit</a>
+        </td>
+        <td>
+          <a class="btn btn-sm btn-danger">Delete</a>
         </td>
       </tr>
       </tbody>
