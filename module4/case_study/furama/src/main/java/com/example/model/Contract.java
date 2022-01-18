@@ -1,6 +1,7 @@
 package com.example.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
 import java.util.Set;
 
@@ -10,11 +11,13 @@ public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer contractId;
+
     private String contractStartDate;
     private String contractEndDate;
-    @Positive
+
+
     private Double contractDeposit;
-    @Positive
+
     private Double contractTotalMoney;
     @ManyToOne
     @JoinColumn(name = "employeeId",referencedColumnName = "employeeId", nullable = false)
@@ -114,4 +117,6 @@ public class Contract {
     public void setContractDetails(Set<ContractDetail> contractDetails) {
         this.contractDetails = contractDetails;
     }
+
+
 }

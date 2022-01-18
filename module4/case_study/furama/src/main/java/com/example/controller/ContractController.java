@@ -35,7 +35,7 @@ public class ContractController {
     public Iterable<AttachService> getAttachService(){
         return attachServiceService.findAll();
     }
-    @ModelAttribute("contract")
+    @ModelAttribute("contractIter")
     public Iterable<Contract> getContract(){
         return contractService.findAll();
     }
@@ -55,12 +55,13 @@ public class ContractController {
     @GetMapping("/contract")
     public String showList(@RequestParam("keyword") Optional<String> nameEmployee,
                            @RequestParam("keyword") Optional<String> nameCustomer,
+                           @RequestParam("keyword") Optional<String> nameService,
                            Model model, @PageableDefault(value = 7) Pageable pageable){
         Page<Contract> contractList;
         if(!nameEmployee.isPresent() || !nameCustomer.isPresent()  ){
             contractList = contractService.findAll(pageable);
         }else{
-            contractList = contractService.findAllByEmployee_NameOrCustomer_Name(nameEmployee.get(), nameCustomer.get(), pageable);
+            contractList = contractService.findAllByEmployee_NameOrCustomer_NameOrService_Name(nameEmployee.get(), nameCustomer.get(),nameService.get(), pageable);
         }
         model.addAttribute("contractList",contractList);
         return "contract/list";
@@ -71,10 +72,14 @@ public class ContractController {
         return "contract/create-contract";
     }
     @PostMapping("/contract/create")
-    public String createContract(@Validated @ModelAttribute("contract") Contract contract , BindingResult bindingResult , RedirectAttributes redirectAttributes){
+    public String createContract(@Validated @ModelAttribute("contract") Contract contract , BindingResult bindingResult , RedirectAttributes redirectAttributes,Service service,ContractDetail contractDetail){
        if(bindingResult.hasFieldErrors()){
            return "contract/create-contract";
        }else{
+           Double total = service.getServiceCost();
+           contract.setContractDeposit(total);
+           Double totalAllMoney = 0.0 + total;
+           contract.setContractTotalMoney(totalAllMoney);
            contractService.save(contract);
            redirectAttributes.addFlashAttribute("message", contract.getContractId());
            return "redirect:/contract";
@@ -91,18 +96,24 @@ public class ContractController {
         if (bindingResult.hasFieldErrors()){
             return "contract/create-detail-contract";
         }else{
+            contractDetail.getContract().setContractTotalMoney(contractDetail.totalAll());
             contractDetailService.save(contractDetail);
             redirectAttributes.addFlashAttribute("addSuccess", contractDetail.getContractDetailId());
             return "redirect:/contract";
         }
     }
 
-    @GetMapping("/contract-detail/views/{id}")
-    public String viewDetailContract(@PathVariable("id") int id,Model model){
-        Contract contract = contractService.findById(id);
-        ContractDetail contractDetail = contractDetailService.findById(contract.getContractId());
-        model.addAttribute("contractObject",contract);
-        model.addAttribute("contractDetail",contractDetail);
+    @GetMapping("/contract-detail/view")
+    public String showListDetailContract(@RequestParam("keyword") Optional<String> nameCustomer,
+                                         @RequestParam("keyword") Optional<String> idCustomer,
+                                         Model model, @PageableDefault(value = 7) Pageable pageable){
+        Page<ContractDetail> contractDetailList;
+        if(!nameCustomer.isPresent() || !idCustomer.isPresent()){
+            contractDetailList = contractDetailService.findAll(pageable);
+        }else {
+            contractDetailList = contractDetailService.findAllByCustomer_NameOrCustomer_CustomerId(nameCustomer.get(),idCustomer.get(),pageable);
+        }
+        model.addAttribute("contractDetailList",contractDetailList);
         return "contract/view";
     }
 }

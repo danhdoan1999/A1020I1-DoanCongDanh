@@ -9,6 +9,6 @@ public interface ContractService {
     Contract findById(Integer id);
     void save(Contract contract);
     void delete(Contract contract);
-    Page<Contract> findAllByEmployee_NameOrCustomer_Name(String nameEm,String nameCus, Pageable pageable);
+    Page<Contract> findAllByEmployee_NameOrCustomer_NameOrService_Name(String nameEm,String nameCus,String nameSer, Pageable pageable);
     Iterable<Contract> findAll();
 }

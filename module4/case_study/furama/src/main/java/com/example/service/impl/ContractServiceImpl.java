@@ -35,10 +35,9 @@ public class ContractServiceImpl implements ContractService {
     }
 
     @Override
-    public Page<Contract> findAllByEmployee_NameOrCustomer_Name(String nameEm,String nameCus, Pageable pageable) {
-        return contractRepository.findAllByEmployee_NameOrCustomer_Name("%" + nameEm +"%","%"+nameCus+"%",pageable);
+    public Page<Contract> findAllByEmployee_NameOrCustomer_NameOrService_Name(String nameEm,String nameCus,String nameSer, Pageable pageable) {
+        return contractRepository.findAllByEmployee_NameOrCustomer_NameOrService_Name("%" + nameEm +"%","%"+nameCus+"%","%"+nameSer+"%",pageable);
     }
-
     @Override
     public Iterable<Contract> findAll() {
         return contractRepository.findAll();

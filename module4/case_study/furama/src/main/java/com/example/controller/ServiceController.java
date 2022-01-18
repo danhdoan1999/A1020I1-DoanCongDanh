@@ -63,6 +63,16 @@ public class ServiceController {
         }else{
             String id = "DV-" + ((int) (Math.random()*9999));
             service.setServiceId(id);
+            if (service.getRentType().getRentTypeName().equals("day")){
+                service.setServiceCost(service.getServiceCost()*service.getRentType().getRentTypeCost());
+            }
+            if (service.getRentType().getRentTypeName().equals("month")){
+                service.setServiceCost(service.getServiceCost()*service.getRentType().getRentTypeCost());
+            }
+            if (service.getRentType().getRentTypeName().equals("year")){
+                service.setServiceCost(service.getServiceCost()*service.getRentType().getRentTypeCost());
+            }
+
             serviceService.save(service);
             model.addAttribute("service",new Service());
             redirectAttributes.addFlashAttribute("message","New service has added to your List  !!! ");

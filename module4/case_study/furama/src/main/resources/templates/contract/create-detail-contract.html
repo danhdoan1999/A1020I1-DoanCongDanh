@@ -22,7 +22,7 @@
                 <div class="form-group col-md-6">
                     <label for="idContract">Customer</label>
                     <select id="idContract" class="form-control" th:field="*{contract}">
-                        <option th:each="cont : ${contract}" th:value="${cont.contractId}" th:text="${cont.customer.name}"></option>
+                        <option th:each="cont : ${contractIter}" th:value="${cont.contractId}" th:text="${cont.customer.name}"></option>
                     </select>
                 </div>
             </div>

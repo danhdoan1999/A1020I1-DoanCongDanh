@@ -8,13 +8,14 @@
 <body>
 <header th:replace="/layout :: header"></header>
 <div class="row">
-    <div class="col-lg-1"></div>
-    <div style="padding-top: 3rem" class="col-lg-2">
-        <div class="row">
-            <a class="btn btn-warning" href="/contract/create-form-contract">Create new contract</a>
-        </div>
-        <div style="padding-top:2rem " class="row">
-            <a class="btn btn-warning" href="/contract/create-detail">Create new detail</a>
+    <div class="col-lg-3">
+        <div class="list-group border border-dark rounded h-100">
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                List Contract
+            </a>
+            <a href="/contract/create-form-contract" class="list-group-item list-group-item-action" >Create new contract</a>
+            <a href="/contract/create-detail" class="list-group-item list-group-item-action" >Create new detail contract</a>
+            <a href="/contract-detail/view" class="list-group-item list-group-item-action" >List Contract detail</a>
         </div>
     </div>
     <div class="col-lg-9">
@@ -29,19 +30,21 @@
                 <th>Id</th>
                 <th>Start Day</th>
                 <th>End Day</th>
-                <th>Deposit</th>
-                <th>ToTal Money</th>
                 <th>Customer</th>
                 <th>Service</th>
+                <th>Service Cost</th>
+                <th>Employee</th>
+                <th>Total money</th>
             </tr>
             <tr th:each="contract :${contractList}">
                 <td th:text="${contract.contractId}"></td>
                 <td th:text="${contract.contractStartDate}"></td>
                 <td th:text="${contract.contractEndDate}"></td>
-                <td th:text="${contract.contractDeposit}"></td>
-                <td th:text="${contract.contractTotalMoney}"></td>
                 <td th:text="${contract.customer.name}"></td>
                 <td th:text="${contract.service.serviceName}"></td>
+                <td th:text="${contract.contractDeposit}"></td>
+                <td th:text="${contract.employee.name}"></td>
+                <td th:text="${contract.contractTotalMoney}"></td>
             </tr>
         </table>
         <div>

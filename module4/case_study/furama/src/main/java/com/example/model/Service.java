@@ -29,7 +29,7 @@ public class Service {
     private String standardRoom;
     @NotBlank
     private String descriptionOtherConvenience;
-    @Positive
+
     private Double poolArea;
     @Positive
     private Integer numberOfFloors;

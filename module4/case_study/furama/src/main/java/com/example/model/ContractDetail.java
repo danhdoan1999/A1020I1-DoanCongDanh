@@ -54,4 +54,11 @@ public class ContractDetail {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
+
+    public Double totalUsingAttachService(){
+       return  (double) this.quantity * this.attachService.getAttachServiceCost();
+    }
+    public Double totalAll(){
+        return (double) this.contract.getContractDeposit() + totalUsingAttachService();
+    }
 }
